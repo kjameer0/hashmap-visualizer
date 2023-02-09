@@ -1,7 +1,7 @@
 {
-  "name": "vite-react-ts",
+  "name": "hashmap-visualizer",
   "version": "0.0.0",
-  "description": "React Typescript Starter Template with Vite",
+  "description": "visualizer for common data structures",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kjameer0/hashmap-visualizer.git"
