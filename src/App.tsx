@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Header title="hola" />
       <Logo height={100} width={100} />
-      <Button onClick={() => alert('hola')}>Heyo</Button>
+      <Button onClick={() => alert('hola')}>hey</Button>
     </div>
   );
 }
