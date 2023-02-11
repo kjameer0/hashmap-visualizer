@@ -1,0 +1,3 @@
+[submodule "array-visualizer-folder"]
+	path = array-visualizer-folder
+	url = https://github.com/kjameer0/binary-tree-visualizer.git
