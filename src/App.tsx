@@ -1,7 +1,7 @@
 import { Header } from 'components/Header';
 import { Button } from 'components/Button';
 import { ReactComponent as Logo } from 'assets/favicon.svg';
-
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <Header title="hola" />
       <Logo height={100} width={100} />
       <Button onClick={() => alert('hola')}>hy</Button>
+      <Outlet />
     </div>
   );
 }

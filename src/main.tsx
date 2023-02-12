@@ -3,6 +3,8 @@ import React, { StrictMode } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import 'tailwindcss/tailwind.css';
+//components
+import Arr from 'components/visualizers/array';
 import { ErrorPage } from 'utils/error-handling';
 
 import App from './App';
@@ -15,11 +17,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'arr',
-        element: React.createElement(
-          'div',
-          null,
-          '/Users/khalidjameer/finalProjectProgression/array-visualizer/index.html'
-        ),
+        element: <Arr />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
