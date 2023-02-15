@@ -34,3 +34,5 @@ const arrHtml = `<div class="container"><h1>Array Visualizer</h1>
   </div>
   <script type="module" src="src/utils/arr-script.ts"></script>`;
 export { arrHtml };
+
+

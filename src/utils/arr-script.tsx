@@ -1,5 +1,4 @@
 import { $, generateRandomArray, produceErrorMessage, enterKeyDown } from './arr-utils';
-
 //clear button clears text inputs and array display
 //clear button clears text inputs and array display
 function makeClearButton() {
@@ -46,6 +45,25 @@ function strArrayToLiElements(arr: string[], existingLen: number) {
     return listElement;
   });
 }
+// function strArrayToLiElements2(arr: string[], existingLen: number) {
+//   return arr.map((elem, idx) => {
+//     return (
+//       <li id={`el-${idx}`}>
+//         <p>{String(idx + existingLen)}</p>
+//         <div
+//           id={`val-${idx}`}
+//           draggable={true}
+//           onDrop={drop}
+//           onDragStart={drag}
+//           onDragOver={canDrop}
+//           className={'arr-element'}
+//         >
+//           {elem}
+//         </div>
+//       </li>
+//     );
+//   });
+// }
 function makeRandomButton() {
   try {
     const buttonRandom = $('make-random');
@@ -199,7 +217,7 @@ function canDrop(event: Event) {
 }
 function drag(event: DragEvent) {
   try {
-    const arrayElem = (<HTMLElement>event.target).id;
+    const arrayElem = (event.target as HTMLElement).id;
     if (!event.dataTransfer || !event.target) throw new Error('no event to check');
     if (!arrayElem) throw new Error('no array value');
     event.dataTransfer.setData('text', arrayElem);
@@ -211,7 +229,7 @@ function drop(event: DragEvent) {
   try {
     event.preventDefault();
     let draggedElement = event.dataTransfer?.getData('text');
-    const swap = (<HTMLElement>event.target).lastChild;
+    const swap = (event.target as HTMLElement).lastChild;
     if (!swap) throw new Error('no data to swap');
     if (!draggedElement) throw new Error('no data found in list elem');
     let data = $(draggedElement);

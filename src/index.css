@@ -13,4 +13,25 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
-
+.arr-element {
+  border: 4px solid;
+  border-radius: 100%;
+  padding: 2rem 2.3rem;
+  margin-top: 0.1rem;
+  font-size: 2rem;
+  background-clip: 0.5rem;
+}
+ul {
+  list-style: none;
+}
+li {
+  text-align: center;
+  float: left;
+  margin: 1% 2%;
+}
+li :nth-child(2):hover {
+  background-color: #0000ff;
+}
+input {
+  height: 1.8rem;
+}
