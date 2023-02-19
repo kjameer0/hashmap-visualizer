@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import ArrList from 'components/ArrList';
 export function Tesst() {
   const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     event.dataTransfer.setData('text', event.currentTarget.id);
@@ -27,9 +29,7 @@ export function Tesst() {
 
 export default function Arr() {
   //useScript('src/utils/arr-script.ts');
-  function handleDrag(e: React.DragEvent<HTMLDivElement>) {
-    console.log(e.clientX, e.clientY);
-  }
+  const [arr, setArr] = useState(['1', '2', '3']);
   return (
     <div className="container">
       <h1>Array Visualizer</h1>
@@ -40,43 +40,48 @@ export default function Arr() {
       <p className="sub-title">Drag array elements over each other to swap</p>
       <br />
       <div>
-        <label htmlFor="array-input">Put your comma separated array here:</label>
-        <input type="text" name="array-input" id="array-input" />
-        <button type="submit" id="submit-arr">
-          Make Array
-        </button>
-        <br />
-        <label htmlFor="arr-maker">Make random array of length:</label>
-        <input type="text" id="submit-len" name="submit-len" />
-        <button type="submit" id="make-random">
-          Make Random Array
-        </button>
-        <br />
-        <label htmlFor="concat-maker">Concat array to existing array:</label>
-        <input type="text" id="concat-maker" name="concat-maker" />
-        <button className="button-small" type="submit" id="concat-arr">
-          Concat
-        </button>
-        <br />
-        <label htmlFor="push-input">Value to push:</label>
-        <input type="text" id="push-input" name="push-input" />
-        <button className="button-small" type="submit" id="push-arr">
-          Push
-        </button>
-        <br />
-        <label htmlFor="unshift-input">Value to unshift:</label>
-        <input type="text" id="unshift-input" name="unshift-input" />
-        <button className="button-small" type="submit" id="unshift-arr">
-          Unshift
-        </button>
-        <br />
-        <button className="button-small" type="submit" id="pop-arr">
+        <div className="arr-input-line">
+          <label htmlFor="array-input">Put your comma separated array here:</label>
+          <input type="text" name="array-input" id="array-input" />
+          <button className="arr-button" type="submit" id="submit-arr">
+            Make Array
+          </button>
+        </div>
+        <div className="arr-input-line">
+          <label htmlFor="arr-maker">Make random array of length:</label>
+          <input type="text" id="submit-len" name="submit-len" />
+          <button className="arr-button" type="submit" id="make-random">
+            Make Random Array
+          </button>
+        </div>
+        <div className="arr-input-line">
+          <label htmlFor="concat-maker">Concat array to existing array:</label>
+          <input type="text" id="concat-maker" name="concat-maker" />
+          <button className="arr-button" type="submit" id="concat-arr">
+            Concat
+          </button>
+        </div>
+        <div className="arr-input-line">
+          <label htmlFor="push-input">Value to push:</label>
+          <input type="text" id="push-input" name="push-input" />
+          <button className="arr-button" type="submit" id="push-arr">
+            Push
+          </button>
+        </div>
+        <div className="arr-input-line">
+          <label htmlFor="unshift-input">Value to unshift:</label>
+          <input type="text" id="unshift-input" name="unshift-input" />
+          <button className="arr-button" type="submit" id="unshift-arr">
+            Unshift
+          </button>
+        </div>
+        <button className="arr-button" type="submit" id="pop-arr">
           Pop
         </button>
-        <button className="button-small" type="submit" id="shift-arr">
+        <button className="arr-button" type="submit" id="shift-arr">
           Shift
         </button>
-        <button className="button-med" type="submit" id="make-empty">
+        <button className="arr-button" type="submit" id="make-empty">
           Clear All
         </button>
         <div id="array-container" />
@@ -84,10 +89,7 @@ export default function Arr() {
       <h2 className="arr-title">
         <strong>Array</strong>
       </h2>
-      <ul id="array-list" />
-      <div id="test232" draggable="true" onDragStart={handleDrag}>
-        move around
-      </div>
+      <ArrList arr={arr} setArr={setArr} />
     </div>
   );
 }
