@@ -1,6 +1,11 @@
-export function $(id: string) {
-  return document.getElementById(id);
-}
+import React from 'react';
+export const stringToArray = (str: string): string[] => {
+  let start = 0;
+  let end = str.length;
+  if (str[0] === '[') start++;
+  if (str[end - 1] === ']') end--;
+  return str.slice(start, end).split(',');
+};
 //create random array of values between 0 and len
 //may contain duplicates
 export function generateRandomArray(len: number) {
@@ -10,6 +15,7 @@ export function generateRandomArray(len: number) {
   }
   return res;
 }
+
 //basic error message handler
 export function produceErrorMessage(err: unknown) {
   let message = 'Unknown Error';
@@ -17,6 +23,7 @@ export function produceErrorMessage(err: unknown) {
     message = err.message;
   }
   reportError({ message });
+  return message;
 }
 
 export function enterKeyDown(e: KeyboardEvent, button: HTMLElement) {
@@ -27,25 +34,5 @@ export function enterKeyDown(e: KeyboardEvent, button: HTMLElement) {
     }
   } catch (error) {
     produceErrorMessage;
-  }
-}
-export function inputKeyHandle(e: KeyboardEvent) {
-  if (/[a-z]/.test(e.key)) {
-    console.log(e.key);
-    e.preventDefault();
-  }
-  try {
-    let input = '';
-    if (e.key === 'm') input = 'array-input';
-    else if (e.key === '1') input = 'array-input';
-    else if (e.key === 'c') input = 'array-input';
-    else if (e.key === 'p') input = 'array-input';
-    else if (e.key === 'u') input = 'array-input';
-    const element = $(input) as HTMLInputElement;
-    if (!element) return;
-    element?.focus();
-    element.value = '';
-  } catch (error) {
-    produceErrorMessage(error);
   }
 }

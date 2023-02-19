@@ -19,13 +19,18 @@ body {
   font-size: 2rem;
   text-align: center;
 }
+.container > h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 .arr-input-line {
   margin: .5rem auto;
 }
 .arr-input-line > label{
   font-size: 1.2rem;
 }
-
 .arr-input-line > input{
   color: black;
 }

@@ -26,10 +26,44 @@ export function Tesst() {
     </div>
   );
 }
+import { stringToArray, generateRandomArray, produceErrorMessage } from 'utils/arr-utils';
 
 export default function Arr() {
-  //useScript('src/utils/arr-script.ts');
-  const [arr, setArr] = useState(['1', '2', '3']);
+  const [arr, setArr] = useState([] as string[]);
+  const [makeField, setMakeField] = useState('');
+  const [makeRandomField, setMakeRandomField] = useState('');
+  const [concatField, setConcatField] = useState('');
+  const [pushField, setPushField] = useState('');
+  const [unshiftField, setUnshiftField] = useState('');
+  const [errorText, setErrorText] = useState('');
+  function handleMakeArrayClick(e: React.MouseEvent<HTMLButtonElement>) {
+    try {
+      if (!makeField.length) throw new Error('Please enter literally anything to make an array');
+      const newArr = stringToArray(makeField);
+      setMakeField('');
+      setArr(newArr);
+    } catch (error) {
+      const message = produceErrorMessage(error);
+      setErrorText(message);
+    }
+  }
+  function handleMakeRandomClick(e: React.MouseEvent<HTMLButtonElement>) {
+    try {
+      if (!/^[0-9]+$/.test(makeRandomField) && makeRandomField !== '') {
+        throw new Error('enter a number or nothing in random field');
+      }
+      let arrLen;
+      if (makeRandomField.length === 0) arrLen = 10;
+      else arrLen = Number(makeRandomField);
+      const newArr = generateRandomArray(arrLen);
+      setMakeRandomField('');
+      setArr(newArr);
+    } catch (error) {
+      const message = produceErrorMessage(error);
+      setErrorText(message);
+    }
+  }
+
   return (
     <div className="container">
       <h1>Array Visualizer</h1>
@@ -42,15 +76,37 @@ export default function Arr() {
       <div>
         <div className="arr-input-line">
           <label htmlFor="array-input">Put your comma separated array here:</label>
-          <input type="text" name="array-input" id="array-input" />
-          <button className="arr-button" type="submit" id="submit-arr">
+          <input
+            value={makeField}
+            onChange={(e) => setMakeField(e.target.value)}
+            type="text"
+            name="array-input"
+            id="array-input"
+          />
+          <button
+            className="arr-button"
+            type="submit"
+            id="submit-arr"
+            onClick={(e) => handleMakeArrayClick(e)}
+          >
             Make Array
           </button>
         </div>
         <div className="arr-input-line">
           <label htmlFor="arr-maker">Make random array of length:</label>
-          <input type="text" id="submit-len" name="submit-len" />
-          <button className="arr-button" type="submit" id="make-random">
+          <input
+            type="text"
+            id="submit-len"
+            value={makeRandomField}
+            onChange={(e) => setMakeRandomField(e.target.value)}
+            name="submit-len"
+          />
+          <button
+            className="arr-button"
+            type="submit"
+            id="make-random"
+            onClick={(e) => handleMakeRandomClick(e)}
+          >
             Make Random Array
           </button>
         </div>
@@ -86,9 +142,7 @@ export default function Arr() {
         </button>
         <div id="array-container" />
       </div>
-      <h2 className="arr-title">
-        <strong>Array</strong>
-      </h2>
+      <h2 className="arr-title">Array</h2>
       <ArrList arr={arr} setArr={setArr} />
     </div>
   );

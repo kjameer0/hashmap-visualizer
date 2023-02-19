@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import 'tailwindcss/tailwind.css';
 //components
-import Arr from 'components/visualizers/array';
+import Arr from 'components/visualizers/Array';
 import { ErrorPage } from 'utils/error-handling';
 
 import App from './App';
