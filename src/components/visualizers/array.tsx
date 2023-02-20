@@ -63,6 +63,17 @@ export default function Arr() {
       setErrorText(message);
     }
   }
+  function handleConcatClick(e: React.MouseEvent<HTMLButtonElement>) {
+    try {
+      if (!concatField.length) throw new Error('Please enter literally anything to add to array');
+      const newArr = arr.concat(stringToArray(concatField));
+      setConcatField('');
+      setArr(newArr);
+    } catch (error) {
+      const message = produceErrorMessage(error);
+      setErrorText(message);
+    }
+  }
 
   return (
     <div className="container">
@@ -112,8 +123,14 @@ export default function Arr() {
         </div>
         <div className="arr-input-line">
           <label htmlFor="concat-maker">Concat array to existing array:</label>
-          <input type="text" id="concat-maker" name="concat-maker" />
-          <button className="arr-button" type="submit" id="concat-arr">
+          <input
+            type="text"
+            id="concat-maker"
+            name="concat-maker"
+            value={concatField}
+            onChange={(ev) => setConcatField(ev.target.value)}
+          />
+          <button className="arr-button" type="submit" id="concat-arr" onClick={handleConcatClick}>
             Concat
           </button>
         </div>
@@ -137,7 +154,12 @@ export default function Arr() {
         <button className="arr-button" type="submit" id="shift-arr">
           Shift
         </button>
-        <button className="arr-button" type="submit" id="make-empty">
+        <button
+          className="arr-button"
+          type="submit"
+          id="make-empty"
+          onClick={() => setArr([] as string[])}
+        >
           Clear All
         </button>
         <div id="array-container" />

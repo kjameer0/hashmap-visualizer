@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd';
+
 type swap = {
   idx: number;
   val: string;
@@ -12,7 +12,7 @@ export default function ArrList({
   arr: string[];
   setArr: (array: string[]) => void;
 }) {
-  const [swapVal, setSwapVal] = useState({ idx: -1, val: '' });
+  const [swapVal, setSwapVal] = useState({} as swap);
   const [held, setHeld] = useState(false);
   function handleSwapClick(e: React.MouseEvent<HTMLButtonElement>, value: swap) {
     if (held) {
@@ -21,6 +21,7 @@ export default function ArrList({
       newArr[idx] = swapVal.val;
       newArr[swapVal.idx] = val;
       setArr(newArr);
+      setSwapVal({} as swap);
     } else {
       setSwapVal(value);
     }
@@ -33,7 +34,12 @@ export default function ArrList({
           return (
             <li key={idx}>
               <p>{idx}</p>
-              <button onClick={(e) => handleSwapClick(e, { idx, val: el })}>val:{el}</button>
+              <button
+                style={{ backgroundColor: swapVal.idx === idx ? 'white' : 'black' }}
+                onClick={(e) => handleSwapClick(e, { idx, val: el })}
+              >
+                {el}
+              </button>
             </li>
           );
         })}
