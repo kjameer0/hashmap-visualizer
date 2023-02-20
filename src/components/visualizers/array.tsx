@@ -36,7 +36,7 @@ export default function Arr() {
   const [pushField, setPushField] = useState('');
   const [unshiftField, setUnshiftField] = useState('');
   const [errorText, setErrorText] = useState('');
-  function handleMakeArrayClick(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleMakeArrayClick() {
     try {
       if (!makeField.length) throw new Error('Please enter literally anything to make an array');
       const newArr = stringToArray(makeField);
@@ -47,7 +47,7 @@ export default function Arr() {
       setErrorText(message);
     }
   }
-  function handleMakeRandomClick(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleMakeRandomClick() {
     try {
       if (!/^[0-9]+$/.test(makeRandomField) && makeRandomField !== '') {
         throw new Error('enter a number or nothing in random field');
@@ -63,7 +63,7 @@ export default function Arr() {
       setErrorText(message);
     }
   }
-  function handleConcatClick(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleConcatClick() {
     try {
       if (!concatField.length) throw new Error('Please enter literally anything to add to array');
       const newArr = arr.concat(stringToArray(concatField));
@@ -74,7 +74,36 @@ export default function Arr() {
       setErrorText(message);
     }
   }
-
+  function handlePushClick() {
+    try {
+      if (!pushField.length) throw new Error('enter value to push');
+      const newArr = [...arr, pushField];
+      setPushField('');
+      setArr(newArr);
+    } catch (error) {
+      const message = produceErrorMessage(error);
+      setErrorText(message);
+    }
+  }
+  function handleUnshiftClick() {
+    try {
+      if (!unshiftField.length) throw new Error('enter value to unshift');
+      const newArr = [unshiftField, ...arr];
+      setUnshiftField('');
+      setArr(newArr);
+    } catch (error) {
+      const message = produceErrorMessage(error);
+      setErrorText(message);
+    }
+  }
+  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>, field: string) {
+    if (e.key !== 'Enter') return;
+    if (field === 'make') handleMakeArrayClick();
+    if (field === 'random') handleMakeRandomClick();
+    if (field === 'concat') handleConcatClick();
+    if (field === 'push') handlePushClick();
+    if (field === 'unshift') handleUnshiftClick();
+  }
   return (
     <div className="container">
       <h1>Array Visualizer</h1>
@@ -93,12 +122,13 @@ export default function Arr() {
             type="text"
             name="array-input"
             id="array-input"
+            onKeyDown={(e) => handleEnter(e, 'make')}
           />
           <button
             className="arr-button"
             type="submit"
             id="submit-arr"
-            onClick={(e) => handleMakeArrayClick(e)}
+            onClick={() => handleMakeArrayClick()}
           >
             Make Array
           </button>
@@ -110,13 +140,14 @@ export default function Arr() {
             id="submit-len"
             value={makeRandomField}
             onChange={(e) => setMakeRandomField(e.target.value)}
+            onKeyDown={(e) => handleEnter(e, 'random')}
             name="submit-len"
           />
           <button
             className="arr-button"
             type="submit"
             id="make-random"
-            onClick={(e) => handleMakeRandomClick(e)}
+            onClick={(e) => handleMakeRandomClick()}
           >
             Make Random Array
           </button>
@@ -129,6 +160,7 @@ export default function Arr() {
             name="concat-maker"
             value={concatField}
             onChange={(ev) => setConcatField(ev.target.value)}
+            onKeyDown={(e) => handleEnter(e, 'concat')}
           />
           <button className="arr-button" type="submit" id="concat-arr" onClick={handleConcatClick}>
             Concat
@@ -136,22 +168,51 @@ export default function Arr() {
         </div>
         <div className="arr-input-line">
           <label htmlFor="push-input">Value to push:</label>
-          <input type="text" id="push-input" name="push-input" />
-          <button className="arr-button" type="submit" id="push-arr">
+          <input
+            type="text"
+            id="push-input"
+            name="push-input"
+            value={pushField}
+            onChange={(e) => setPushField(e.target.value)}
+            onKeyDown={(e) => handleEnter(e, 'push')}
+          />
+          <button className="arr-button" type="submit" id="push-arr" onClick={handlePushClick}>
             Push
           </button>
         </div>
         <div className="arr-input-line">
           <label htmlFor="unshift-input">Value to unshift:</label>
-          <input type="text" id="unshift-input" name="unshift-input" />
-          <button className="arr-button" type="submit" id="unshift-arr">
+          <input
+            type="text"
+            id="unshift-input"
+            name="unshift-input"
+            value={unshiftField}
+            onChange={(e) => setUnshiftField(e.target.value)}
+            onKeyDown={(e) => handleEnter(e, 'unshift')}
+          />
+          <button
+            className="arr-button"
+            type="submit"
+            id="unshift-arr"
+            onClick={handleUnshiftClick}
+          >
             Unshift
           </button>
         </div>
-        <button className="arr-button" type="submit" id="pop-arr">
+        <button
+          className="arr-button"
+          type="submit"
+          id="pop-arr"
+          onClick={() => setArr([...arr].slice(0, arr.length - 1))}
+        >
           Pop
         </button>
-        <button className="arr-button" type="submit" id="shift-arr">
+        <button
+          className="arr-button"
+          type="submit"
+          id="shift-arr"
+          onClick={() => setArr([...arr].slice(1))}
+        >
           Shift
         </button>
         <button
