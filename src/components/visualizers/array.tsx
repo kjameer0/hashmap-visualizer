@@ -1,31 +1,6 @@
 import { useState } from 'react';
 import ArrList from 'components/ArrList';
-export function Tesst() {
-  const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
-    event.dataTransfer.setData('text', event.currentTarget.id);
-  };
-  const enableDropping = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-  };
 
-  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    const id = event.dataTransfer.getData('text');
-    console.log(`Somebody dropped an element with id: ${id}`);
-  };
-  return (
-    <div>
-      <div id="d1" draggable="true" onDragStart={handleDragStart}>
-        Drag me
-      </div>
-      <div id="d2" draggable="true" onDragStart={handleDragStart}>
-        Or me!
-      </div>
-      <div onDragOver={enableDropping} onDrop={handleDrop}>
-        Drop Area
-      </div>
-    </div>
-  );
-}
 import { stringToArray, generateRandomArray, produceErrorMessage } from 'utils/arr-utils';
 
 export default function Arr() {
@@ -111,7 +86,7 @@ export default function Arr() {
       <p className="sub-title">
         Make Random Array button will make 10 length array if field is empty
       </p>
-      <p className="sub-title">Drag array elements over each other to swap</p>
+      <p className="sub-title">Click one array element and then another to swap</p>
       <br />
       <div>
         <div className="arr-input-line">
@@ -125,7 +100,7 @@ export default function Arr() {
             onKeyDown={(e) => handleEnter(e, 'make')}
           />
           <button
-            className="arr-button"
+            className="main-button"
             type="submit"
             id="submit-arr"
             onClick={() => handleMakeArrayClick()}
@@ -144,7 +119,7 @@ export default function Arr() {
             name="submit-len"
           />
           <button
-            className="arr-button"
+            className="main-button"
             type="submit"
             id="make-random"
             onClick={(e) => handleMakeRandomClick()}
@@ -162,7 +137,7 @@ export default function Arr() {
             onChange={(ev) => setConcatField(ev.target.value)}
             onKeyDown={(e) => handleEnter(e, 'concat')}
           />
-          <button className="arr-button" type="submit" id="concat-arr" onClick={handleConcatClick}>
+          <button className="main-button" type="submit" id="concat-arr" onClick={handleConcatClick}>
             Concat
           </button>
         </div>
@@ -176,7 +151,7 @@ export default function Arr() {
             onChange={(e) => setPushField(e.target.value)}
             onKeyDown={(e) => handleEnter(e, 'push')}
           />
-          <button className="arr-button" type="submit" id="push-arr" onClick={handlePushClick}>
+          <button className="main-button" type="submit" id="push-arr" onClick={handlePushClick}>
             Push
           </button>
         </div>
@@ -191,7 +166,7 @@ export default function Arr() {
             onKeyDown={(e) => handleEnter(e, 'unshift')}
           />
           <button
-            className="arr-button"
+            className="main-button"
             type="submit"
             id="unshift-arr"
             onClick={handleUnshiftClick}
@@ -200,7 +175,7 @@ export default function Arr() {
           </button>
         </div>
         <button
-          className="arr-button"
+          className="main-button"
           type="submit"
           id="pop-arr"
           onClick={() => setArr([...arr].slice(0, arr.length - 1))}
@@ -208,7 +183,7 @@ export default function Arr() {
           Pop
         </button>
         <button
-          className="arr-button"
+          className="main-button"
           type="submit"
           id="shift-arr"
           onClick={() => setArr([...arr].slice(1))}
@@ -216,7 +191,7 @@ export default function Arr() {
           Shift
         </button>
         <button
-          className="arr-button"
+          className="main-button"
           type="submit"
           id="make-empty"
           onClick={() => setArr([] as string[])}

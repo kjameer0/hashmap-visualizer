@@ -28,22 +28,20 @@ export default function ArrList({
     setHeld(!held);
   }
   return (
-    <div className="App">
-      <ul className="arr-list">
-        {arr.map((el, idx) => {
-          return (
-            <li key={idx}>
-              <p>{idx}</p>
-              <button
-                style={{ backgroundColor: swapVal.idx === idx ? 'white' : 'black' }}
-                onClick={(e) => handleSwapClick(e, { idx, val: el })}
-              >
-                {el}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="arr-list">
+      {arr.map((el, idx) => {
+        return (
+          <li key={idx}>
+            <p>{idx}</p>
+            <button
+              style={{ backgroundColor: swapVal.idx === idx ? 'white' : 'black' }}
+              onClick={(e) => handleSwapClick(e, { idx, val: el })}
+            >
+              {el}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
