@@ -5,6 +5,7 @@ import './index.css';
 import 'tailwindcss/tailwind.css';
 //components
 import Arr from 'components/visualizers/Array';
+import Hashmap from 'components/visualizers/Hashmap';
 import { ErrorPage } from 'utils/error-handling';
 
 import App from './App';
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: 'arr',
         element: <Arr />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: 'hashmap',
+        element: <Hashmap />,
         errorElement: <ErrorPage />,
       },
     ],

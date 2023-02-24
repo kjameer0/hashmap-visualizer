@@ -20,7 +20,7 @@ export default function NavBar() {
           </NavLink>
         </li>
         <li>
-          <NavLink className={'nh'} to="/">
+          <NavLink className={'nh'} to="/hashmap">
             HashMap
           </NavLink>
         </li>
