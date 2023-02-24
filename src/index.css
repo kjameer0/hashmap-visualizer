@@ -9,18 +9,60 @@
   border: 10px solid blue;
 }
 body {
-  background-color: black;
+  background-color: #403075;
+}
+.App {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.container {
+.nh {
+  cursor: pointer;
+  position: relative;
   flex-basis: 100%;
-  background-color: black;
+  padding: 10px;
+  margin: -10px;
+}
+.nav-bar {
+  position: sticky;
   display: inline-block;
-  width:100%;
+  height: 2.9rem;
+  flex-basis: 100%;
+  color: white;
+  background-color: #615192;
+}
+.nav-bar > ul > li {
+  position: relative;
+  top: -.4rem;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+}
+.nav-bar > ul > li:hover {
+  background-color: white;
+}
+
+li > button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .nav-button {
+  flex-basis: 100%;
+  text-align: center;
+  align-self: stretch;
+  border: 1px solid red;
+}
+.container {
+  background-color: #261758;
+  flex-basis: 100%;
+  /* border: 10px solid blue; */
+  display: inline-block;
   padding-left: 1%;
   padding-right: 1%;
+  height:100%;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -49,7 +91,7 @@ body {
   font-family: Roboto,sans-serif;
   font-size: .75rem;
   font-weight: 500;
-  height: 38px;
+  height: 1.8rem;
   justify-content: center;
   letter-spacing: .0892857em;
   line-height: normal;
@@ -117,9 +159,10 @@ li {
   float: left;
   padding: 10px;
   margin: 1% 2%;
-  color: red;
+  color: skyblue;
 }
-li > button {
+.arr-list > li > button {
+  background-color: white;
   border: 1px solid white;
   border-radius: 100%;
   padding: 1.2rem;
@@ -137,4 +180,8 @@ input {
   background-color: white;
   vertical-align: middle;
 }
+.error-box {
+  border: 1px solid white;
+}
+
 

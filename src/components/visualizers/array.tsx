@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArrList from 'components/ArrList';
 
 import { stringToArray, generateRandomArray, produceErrorMessage } from 'utils/arr-utils';
@@ -11,6 +11,10 @@ export default function Arr() {
   const [pushField, setPushField] = useState('');
   const [unshiftField, setUnshiftField] = useState('');
   const [errorText, setErrorText] = useState('');
+  //clears error text if any changes in array happen
+  useEffect(() => {
+    setErrorText('');
+  }, [arr]);
   function handleMakeArrayClick() {
     try {
       if (!makeField.length) throw new Error('Please enter literally anything to make an array');
@@ -88,6 +92,12 @@ export default function Arr() {
       </p>
       <p className="sub-title">Click one array element and then another to swap</p>
       <br />
+      <div className="error-box">
+        <p>
+          Error:
+          {errorText}
+        </p>
+      </div>
       <div>
         <div className="arr-input-line">
           <label htmlFor="array-input">Put your comma separated array here:</label>

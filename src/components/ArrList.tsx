@@ -34,7 +34,7 @@ export default function ArrList({
           <li key={idx}>
             <p>{idx}</p>
             <button
-              style={{ backgroundColor: swapVal.idx === idx ? 'white' : 'black' }}
+              style={{ backgroundColor: swapVal.idx === idx ? 'white' : '#261785' }}
               onClick={(e) => handleSwapClick(e, { idx, val: el })}
             >
               {el}
