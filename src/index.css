@@ -196,8 +196,13 @@ input {
   border: 0px solid red;
   margin: 10px;
   flex-basis: 50%;
+
 }
-.hash-input > .hash-field > label > input {
+.hash-field > p {
+  font-size: 1.2rem;
+}
+.hash-field > label > input {
+  display: inline-block;
   font-size: 1.5rem;
   background-color: transparent;
   border: 0px solid red;
@@ -207,5 +212,6 @@ input {
   border-bottom: 1px solid gray;
   color: white;
 }
+
 
 

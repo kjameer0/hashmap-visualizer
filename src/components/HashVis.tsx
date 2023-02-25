@@ -12,7 +12,7 @@ export default function HashVis({
         return (
           <li key={index}>
             <p>{pair[0]}</p>
-            <p>pair[1]</p>
+            <p>{pair[1]}</p>
           </li>
         );
       })}
