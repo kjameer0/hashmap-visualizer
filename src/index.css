@@ -34,7 +34,6 @@ body {
 .nav-bar > ul > li {
   position: relative;
   top: -.4rem;
-  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,6 +181,24 @@ input {
 }
 .error-box {
   border: 1px solid white;
+}
+
+/* hashmap */
+
+.hash-input {
+  border: 0px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.hash-input > .hash-field {
+  border: 0px solid red;
+  margin: 10px;
+  flex-basis: 50%;
+}
+.hash-input > .hash-field > label > input {
+  border: 0px solid red;
+  color: black;
 }
 
 
