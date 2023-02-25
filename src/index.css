@@ -33,11 +33,12 @@ body {
 }
 .nav-bar > ul > li {
   position: relative;
-  top: -.4rem;
+  top: -.51rem;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
+  margin-left: 0px;
 }
 .nav-bar > ul > li:hover {
   background-color: white;
@@ -197,8 +198,14 @@ input {
   flex-basis: 50%;
 }
 .hash-input > .hash-field > label > input {
+  font-size: 1.5rem;
+  background-color: transparent;
   border: 0px solid red;
-  color: black;
+  padding-top: .9rem;
+  padding-bottom: .9rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  color: white;
 }
 
 

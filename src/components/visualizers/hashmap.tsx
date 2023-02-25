@@ -25,7 +25,7 @@ export default function HashMap() {
               <input
                 type={'text'}
                 value={hashKey}
-                placeholder="enter key "
+                placeholder="Enter key"
                 onChange={(e) => setHashKey(e.target.value)}
               />
             </label>
