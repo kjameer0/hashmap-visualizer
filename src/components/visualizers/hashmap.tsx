@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { produceErrorMessage } from 'utils/arr-utils';
+import { generateRandomHashMap } from 'utils/hashmap-utils';
 import HashVis from 'components/HashVis';
 export default function HashMap() {
   const [hashmap, setHashmap] = useState(new Map());
@@ -11,9 +12,7 @@ export default function HashMap() {
   useEffect(() => {
     setErrorText('');
   }, [hashmap, output]);
-  useEffect(() => {
-    setOutPut('');
-  }, [errorText]);
+
   function resetFields() {
     // reset text fields
     setHashKey('');
@@ -79,7 +78,6 @@ export default function HashMap() {
     try {
       if (!hashmap.size) throw new Error('No hashmap to reference');
       setOutPut(Array.from(hashmap.values()).join(', '));
-      console.log(output);
     } catch (error) {
       setErrorText(produceErrorMessage(error));
     }
@@ -91,6 +89,9 @@ export default function HashMap() {
     } catch (error) {
       setErrorText(produceErrorMessage(error));
     }
+  }
+  function handleRandom() {
+    setHashmap(generateRandomHashMap());
   }
   function handleClear() {
     setHashmap(new Map());
@@ -150,6 +151,9 @@ export default function HashMap() {
           </button>
           <button className="main-button" onClick={handleClear}>
             Clear
+          </button>
+          <button className="main-button" onClick={handleRandom}>
+            Random Hash Map
           </button>
         </div>
         <div className="hash-output">
