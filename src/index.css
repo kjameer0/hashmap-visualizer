@@ -112,6 +112,9 @@ li > button{
   will-change: transform,opacity;
 }
 
+.main-button:not(:disabled) {
+  background-color: #6200ee;
+}
 .main-button:hover {
   box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
   color: blue;
@@ -126,9 +129,7 @@ li > button{
   pointer-events: none;
 }
 
-.main-button:not(:disabled) {
-  background-color: #6200ee;
-}
+
 
 .main-button:focus {
   box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
