@@ -16,45 +16,76 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-.nh {
-  cursor: pointer;
-  position: relative;
-  flex-basis: 100%;
-  padding: 10px;
-  margin: -10px;
-}
-.nav-bar {
-  position: sticky;
-  display: inline-block;
-  height: 2.9rem;
-  flex-basis: 100%;
-  color: white;
-  background-color: #615192;
-}
-.nav-bar > ul > li {
-  position: relative;
-  top: -.51rem;
+nav {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 3rem;
-  margin-left: 0px;
+  flex-basis: 100%;
+  justify-content: flex-start;
+  background-color: #3a1356;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06)
 }
-.nav-bar > ul > li:hover {
+nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav > ul > li {
+  list-style: none;
+  padding: 0 auto;
+  position: relative;
+}
+nav > ul > li > a {
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 2em 2em 1em 2em;
+  margin: -2em -1em -1em -1em;
+}
+nav > ul > li > a:hover {
+  color: #68B159;
+  transition: width 1s;
+}
+
+
+/* The element to apply the animation to */
+@keyframes nav-line {
+  from {width:0%;}
+  to {width: 60%;}
+}
+nav > ul > li > a:hover::before {
+  content: "";
+  width: 60%;
+  height: 2px;
+  position: absolute;
   background-color: white;
+  top: 2.5rem;
+  left: 2rem;
+  animation-name: nav-line;
+  animation-duration: .5s;
 }
+nav > ul > li > a:hover::after {
+  content: "";
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  background-color: white;
+  bottom: 1rem;
+  left: 2rem;
+  animation-name: nav-line;
+  animation-duration: .5s;
+}
+
+
 
 li > button{
   display: flex;
   justify-content: center;
   align-items: center;
 }
- .nav-button {
-  flex-basis: 100%;
-  text-align: center;
-  align-self: stretch;
-  border: 1px solid red;
-}
+
 .container {
   background-color: #261758;
   flex-basis: 100%;

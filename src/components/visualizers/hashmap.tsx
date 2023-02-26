@@ -109,6 +109,10 @@ export default function HashMap() {
       <h1>HashMap</h1>
       <div className="instructions">
         <p>Instructions:</p>
+        <p>
+          Enter key and value and press enter or click SET to add new pair to Hashmap. Entering just
+          a key and setting will set value to true.
+        </p>
       </div>
       <div className={'hash-form'}>
         <div className="hash-input">
