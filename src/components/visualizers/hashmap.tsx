@@ -13,6 +13,10 @@ export default function HashMap() {
     setErrorText('');
   }, [hashmap, output]);
 
+  useEffect(() => {
+    setOutPut('');
+  }, [hashmap]);
+
   function resetFields() {
     // reset text fields
     setHashKey('');
@@ -96,6 +100,10 @@ export default function HashMap() {
   function handleClear() {
     setHashmap(new Map());
   }
+  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>, field: string) {
+    if (e.key !== 'Enter') return;
+    if (field === 'set') handleSet();
+  }
   return (
     <div className="container">
       <h1>HashMap</h1>
@@ -112,6 +120,7 @@ export default function HashMap() {
                 value={hashKey}
                 placeholder="Enter key"
                 onChange={(e) => setHashKey(e.target.value)}
+                onKeyDown={(e) => handleEnter(e, 'set')}
               />
             </label>
           </div>
@@ -123,6 +132,7 @@ export default function HashMap() {
                 value={hashVal}
                 placeholder="Enter value"
                 onChange={(e) => setHashVal(e.target.value)}
+                onKeyDown={(e) => handleEnter(e, 'set')}
               />
             </label>
           </div>
