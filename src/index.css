@@ -16,23 +16,36 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-nav {
-  display: flex;
-  align-items: center;
-  flex-basis: 100%;
-  justify-content: flex-start;
-  background-color: #3a1356;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.06)
-}
 nav > ul {
   display: flex;
-  align-items: center;
+  height: 100%;
+  flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
 }
 nav > ul > li {
   list-style: none;
   padding: 0 auto;
   position: relative;
+  margin: 30px auto;
+}
+.App > .nav-button {
+  background-color: purple;
+  color: white;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  padding: .5rem 1rem;
+}
+.App > .nav-button:hover {
+  background-color: pink;
+  color: skyblue;
+}
+li > .nav-button {
+  margin-top: -2.8rem;
+  padding: 2rem;
+  margin-bottom: -50px;
+  color: white;
 }
 nav > ul > li > a {
   cursor: pointer;
@@ -42,14 +55,16 @@ nav > ul > li > a {
   position: relative;
   z-index: 1;
   padding: 2em 2em 1em 2em;
-  margin: -2em -1em -1em -1em;
+  margin: -3em -1em -1em -1em;
 }
 nav > ul > li > a:hover {
   color: #68B159;
   transition: width 1s;
 }
 
+@media screen and (max-width: 430px) {
 
+}
 /* The element to apply the animation to */
 @keyframes nav-line {
   from {width:0%;}
@@ -201,7 +216,7 @@ li {
 }
 li > button:hover {
   color: skyblue;
-  background-color: red;
+  background-color: white;
 }
 li > button:active {
   color: skyblue;
