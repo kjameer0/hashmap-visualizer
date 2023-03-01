@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import CSS from 'csstype';
-//just make a cosmetic version
 const barStyle: CSS.Properties = {
   height: '100%',
   width: '0',
@@ -52,6 +51,11 @@ export default function NavBar({
         <li>
           <NavLink className={'nh'} to="/hashmap" onClick={() => setOpen(!open)}>
             HashMap
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={'nh'} to="/binary-tree" onClick={() => setOpen(!open)}>
+            Binary Tree
           </NavLink>
         </li>
       </ul>

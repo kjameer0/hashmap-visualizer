@@ -1,9 +1,10 @@
 @import './styles/reset.css';
-//main styles line 5
-//array styles line 100
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+//search the following strings to navigate
+//main styles
+//array styles
+//hashmap styles
+
+//main styles
 * {
   font-size: 20px;
   border: 10px solid blue;
@@ -34,7 +35,7 @@ nav > ul > li {
   color: white;
   position: absolute;
   top: 2px;
-  left: 0px;
+  left: -5px;
   padding: .5rem 1rem;
 }
 .App > .nav-button:hover {
@@ -92,8 +93,6 @@ nav > ul > li > a:hover::after {
   animation-name: nav-line;
   animation-duration: .5s;
 }
-
-
 
 li > button{
   display: flex;
@@ -231,7 +230,7 @@ input {
   border: 1px solid white;
 }
 
-/* hashmap */
+/* hashmap styles */
 
 .hash-input {
   border: 0px solid red;
@@ -259,6 +258,33 @@ input {
   border-bottom: 1px solid gray;
   color: white;
 }
+.hash-instructions {
+  font-size: 1.2rem;
+}
 
+.hash-buttons {
+  display: flex;
+  flex-wrap: wrap;
 
+}
+.hash-buttons > button {
+  margin-bottom: 1rem;
+}
+
+.hash-output > p {
+  font-size: 1.2rem;
+  border: 1px solid gray;
+}
+.hash-visual {
+  font-size: 1.2rem;
+}
+.hash-visual > ul > li {
+  font-size: 1.2rem;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.hash-visual > h2 {
+  text-align: center;
+}
 

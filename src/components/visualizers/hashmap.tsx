@@ -8,6 +8,7 @@ export default function HashMap() {
   const [hashVal, setHashVal] = useState('');
   const [errorText, setErrorText] = useState('');
   const [output, setOutPut] = useState('');
+  const [selected, setSelected] = useState('');
   //error text is cleared if hashmap or output is updated
   useEffect(() => {
     setErrorText('');
@@ -17,6 +18,11 @@ export default function HashMap() {
     setOutPut('');
   }, [hashmap]);
 
+  useEffect(() => {
+    if (selected.length > 0 && hashKey !== selected) {
+      setSelected('');
+    }
+  }, [hashKey]);
   function resetFields() {
     // reset text fields
     setHashKey('');
@@ -107,11 +113,13 @@ export default function HashMap() {
   return (
     <div className="container">
       <h1>HashMap</h1>
-      <div className="instructions">
-        <p>Instructions:</p>
+      <div className="hash-instructions">
+        <h2>Instructions:</h2>
         <p>
           Enter key and value and press enter or click SET to add new pair to Hashmap. Entering just
-          a key and setting will set value to true.
+          a key and setting will set value to true. Clicking on an element lets you edit or delete
+          it by using corresponding fields and buttons for your operations. Click selected element
+          again to cancel.
         </p>
       </div>
       <div className={'hash-form'}>
@@ -177,7 +185,13 @@ export default function HashMap() {
       </div>
       <div className="hash-visual">
         <h2>HashMap</h2>
-        <HashVis hashmap={hashmap} setHashmap={setHashmap} />
+        <HashVis
+          hashmap={hashmap}
+          setHashmap={setHashmap}
+          setHashKey={setHashKey}
+          selected={selected}
+          setSelected={setSelected}
+        />
       </div>
     </div>
   );

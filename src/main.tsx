@@ -6,6 +6,7 @@ import 'tailwindcss/tailwind.css';
 //components
 import Arr from 'components/visualizers/Array';
 import Hashmap from 'components/visualizers/Hashmap';
+import BinaryTree from 'components/BinaryTree';
 import { ErrorPage } from 'utils/error-handling';
 
 import App from './App';
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: 'hashmap',
         element: <Hashmap />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: 'binary-tree',
+        element: <BinaryTree />,
         errorElement: <ErrorPage />,
       },
     ],
