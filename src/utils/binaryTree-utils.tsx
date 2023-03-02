@@ -36,11 +36,6 @@ export class BinaryTreeMaker {
   //checks which node you want this to be a child of or if its the root of the tree
   insert(val: BinaryTreeNode, idx: number, spot: leftOrRight) {
     let positionOfNewNode;
-
-    //make sure parent exists
-    //if parent is 0 and 'root' we are cool
-    // if parent is 0 and !'root' check
-    //if parent does not exist return
     if (idx !== 0 && spot !== 'root') {
       if (!this.getVal(idx)) throw new Error('parent does not exist');
     }

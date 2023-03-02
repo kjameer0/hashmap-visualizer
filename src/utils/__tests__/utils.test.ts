@@ -24,3 +24,11 @@ test('check if delete removes children', () => {
   newTree.tree.forEach((e) => expect(e).toBe(null));
   expect(newTree.size).toBe(0);
 });
+
+//check if insertion works on node with no parent
+test('check if node insertion fails if no parent', () => {
+  const newTree = new BinaryTreeMaker(['2', '3', '4', null, '6']);
+  expect(() => newTree.insert('10', 3, 'left')).toThrow('parent does not exist');
+  newTree.insert('10',newTree.getParentIdx(3), 'left');
+  expect(newTree.getVal(3)).toBe('10')
+});
