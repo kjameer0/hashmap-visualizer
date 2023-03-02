@@ -283,7 +283,22 @@ input {
   border: 1px solid white;
   cursor: pointer;
 }
-
+.hash-visual > ul > li:hover {
+  background-color: white;
+}
+.hash-visual > ul > li > button {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  padding: .75rem;
+  margin: -10px;
+}
+.hash-visual > ul > li  > button > p{
+  margin: .1rem auto;
+}
+.hash-visual > ul > li > button:active {
+  background-color: white;
+}
 .hash-visual > h2 {
   text-align: center;
 }

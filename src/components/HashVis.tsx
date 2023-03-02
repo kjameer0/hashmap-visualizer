@@ -12,7 +12,7 @@ export default function HashVis({
   setSelected: (a: string) => void;
   setHashKey: (key: string) => void;
 }) {
-  function handleSelect(e: React.MouseEvent<HTMLLIElement>, pair: string[]) {
+  function handleSelect(e: React.MouseEvent<HTMLButtonElement>, pair: string[]) {
     if (selected === pair[0]) {
       setSelected('');
       setHashKey('');
@@ -27,11 +27,15 @@ export default function HashVis({
         return (
           <li
             key={index}
-            onClick={(e) => handleSelect(e, pair)}
-            style={{ backgroundColor: selected === pair[0] ? 'white' : undefined }}
+            style={{
+              backgroundColor: selected === pair[0] ? 'white' : undefined,
+              color: selected === pair[0] ? 'black' : undefined,
+            }}
           >
-            <p>{pair[0]}</p>
-            <p>{pair[1]}</p>
+            <button key={index} onClick={(e) => handleSelect(e, pair)}>
+              <p>{pair[0]}</p>
+              <p>{pair[1]}</p>
+            </button>
           </li>
         );
       })}

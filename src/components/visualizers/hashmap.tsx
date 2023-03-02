@@ -16,6 +16,9 @@ export default function HashMap() {
 
   useEffect(() => {
     setOutPut('');
+    setHashKey('');
+    setHashVal('');
+    setSelected('');
   }, [hashmap]);
 
   useEffect(() => {
