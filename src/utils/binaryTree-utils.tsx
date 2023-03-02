@@ -7,7 +7,7 @@ export class BinaryTreeMaker {
   size: number;
   constructor(tree: BinaryTreeNode[]) {
     this.tree = tree;
-    this.size = tree.length || 0;
+    this.size = tree.length;
   }
   getSize() {
     return this.size;
@@ -33,9 +33,17 @@ export class BinaryTreeMaker {
   getRightChildIdx(idx: number) {
     return Math.floor(idx * 2 + 2);
   }
-  //checks if
+  //checks which node you want this to be a child of or if its the root of the tree
   insert(val: BinaryTreeNode, idx: number, spot: leftOrRight) {
     let positionOfNewNode;
+
+    //make sure parent exists
+    //if parent is 0 and 'root' we are cool
+    // if parent is 0 and !'root' check
+    //if parent does not exist return
+    if (idx !== 0 && spot !== 'root') {
+      if (!this.getVal(idx)) throw new Error('parent does not exist');
+    }
     if (spot === 'root') {
       positionOfNewNode = 0;
     } else if (spot === 'left') {
@@ -46,6 +54,7 @@ export class BinaryTreeMaker {
     this.tree[positionOfNewNode] = val;
     this.size++;
   }
+  //recursively
   delete(idx: number) {
     if (this.getLeftChildVal(idx) || this.getLeftChildVal(idx) === '') {
       this.delete(this.getLeftChildIdx(idx));
