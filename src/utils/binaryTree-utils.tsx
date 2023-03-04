@@ -67,3 +67,26 @@ export function generateRandomBinaryTree(size: number) {
   const tree = new BinaryTreeMaker(treeArray as BinaryTreeNode[]);
   return tree;
 }
+ export function getBaseLog(x: number, y: number) {
+   return Math.log(y) / Math.log(x);
+ }
+ export function makeRows(tree: BinaryTreeMaker = new BinaryTreeMaker(['1', '2', '3', '4', '5'])) {
+   //each row is a div containing 2^row values from tree
+   const size = tree.size;
+   let pointer = 0;
+   const grid = [];
+   const numberOfRows = Math.ceil(getBaseLog(2, size));
+   let nodesPerRow = 1;
+   for (let i = 0; i < numberOfRows; i++) {
+     const cur = [] as BinaryTreeNode[];
+     let numberOfNodes = 0;
+     while (numberOfNodes < nodesPerRow) {
+       cur.push(tree.getVal(pointer) || null);
+       pointer++;
+       numberOfNodes++;
+     }
+     nodesPerRow *= 2;
+     grid.push(cur);
+   }
+   return grid;
+ }

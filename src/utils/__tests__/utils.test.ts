@@ -1,5 +1,10 @@
 import { sum } from 'utils/sum';
-import { BinaryTreeNode, BinaryTreeMaker, generateRandomBinaryTree } from 'utils/binaryTree-utils';
+import {
+  BinaryTreeNode,
+  BinaryTreeMaker,
+  generateRandomBinaryTree,
+  getBaseLog,
+} from 'utils/binaryTree-utils';
 
 test('check if tree can be made', () => {
   const newTree = new BinaryTreeMaker([]);
@@ -29,6 +34,34 @@ test('check if delete removes children', () => {
 test('check if node insertion fails if no parent', () => {
   const newTree = new BinaryTreeMaker(['2', '3', '4', null, '6']);
   expect(() => newTree.insert('10', 3, 'left')).toThrow('parent does not exist');
-  newTree.insert('10',newTree.getParentIdx(3), 'left');
-  expect(newTree.getVal(3)).toBe('10')
+  newTree.insert('10', newTree.getParentIdx(3), 'left');
+  expect(newTree.getVal(3)).toBe('10');
+});
+
+test('check if base log function returns correct', () => {
+  expect(getBaseLog(2, 8)).toBe(3);
+  expect(Math.ceil(getBaseLog(2, 5))).toBe(3);
+});
+function makeRows(size: number) {
+  //each row is a div containing 2^row values from tree
+  const tree = new BinaryTreeMaker(['1', '2', '3', '4', '5']);
+  let pointer = 0;
+  const grid = [];
+  const numberOfRows = Math.ceil(getBaseLog(2, size));
+  let nodesPerRow = 1;
+  for (let i = 0; i < numberOfRows; i++) {
+    const cur = [] as BinaryTreeNode[];
+    let numberOfNodes = 0;
+    while (numberOfNodes < nodesPerRow) {
+      cur.push(tree.getVal(pointer) || null);
+      pointer++;
+      numberOfNodes++;
+    }
+    nodesPerRow *= 2;
+    grid.push(cur);
+  }
+  return grid;
+}
+test('check if make row separates rows correctly', () => {
+  console.log(makeRows(5));
 });
