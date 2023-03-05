@@ -3,6 +3,7 @@ import BinaryTreeVisNode from './BinaryTreeVisNode';
 const gridStyles = {
   display: 'grid',
   border: '1px solid white',
+  overflow: 'auto',
   //width: '90vw',
 };
 const rowStyles = {

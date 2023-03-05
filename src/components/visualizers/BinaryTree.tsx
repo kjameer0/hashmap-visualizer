@@ -21,7 +21,7 @@ export default function BinaryTree() {
       '10',
       '100000',
       '6',
-      // '9',
+      '9',
     ])
   );
   const [val, setVal] = useState('');

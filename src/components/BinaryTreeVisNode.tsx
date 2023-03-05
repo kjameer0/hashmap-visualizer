@@ -5,8 +5,6 @@ const cellStyles: CSS.Properties = {
   borderRadius: '50%',
   padding: '1%',
   margin: '1%',
-
-  // width: '2rem',
   overflow: 'hidden',
 };
 const cellPStyles: CSS.Properties = {
@@ -25,7 +23,7 @@ export default function BinaryTreeVisNode({
   val: BinaryTreeNode;
 }) {
   return (
-    <button style={{ ...cellStyles }}>
+    <button style={{ ...cellStyles, visibility: val === 'null' ? 'hidden' : 'visible' }}>
       <p style={cellPStyles}>{val}</p>
     </button>
   );

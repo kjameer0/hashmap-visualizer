@@ -80,7 +80,7 @@ export function makeRows(tree: BinaryTreeMaker = new BinaryTreeMaker(['1', '2', 
   const grid = [];
   const numberOfRows = Math.ceil(getBaseLog(2, size));
   let nodesPerRow = 1;
-  for (let i = 0; i < numberOfRows; i++) {
+  for (let i = 0; i <= numberOfRows; i++) {
     const cur = [] as BinaryTreeNode[];
     let numberOfNodes = 0;
     while (numberOfNodes < nodesPerRow) {
