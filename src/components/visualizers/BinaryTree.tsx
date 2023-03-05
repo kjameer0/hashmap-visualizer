@@ -4,7 +4,25 @@ import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
 //use style objects
 export default function BinaryTree() {
   const [currentTree, setCurrentTree] = useState(
-    new BinaryTreeMaker(['1', '2', '3', '4', '5', '6', '6', '6', '6', '6', '7'] as BinaryTreeNode[])
+    new BinaryTreeMaker([
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '6',
+      '6',
+      '6',
+      '6',
+      '7000',
+      '8',
+      '9',
+      '10',
+      '100000',
+      '6',
+      // '9',
+    ])
   );
   const [val, setVal] = useState('');
   const [errorText, setErrorText] = useState('');
@@ -20,7 +38,7 @@ export default function BinaryTree() {
           <input type="text" value={val} onChange={(e) => setVal(e.target.value)} />
         </label>
       </div>
-      <BinaryTreeDisplay currentTree={currentTree} />
+      <BinaryTreeDisplay setCurrentTree={setCurrentTree} currentTree={currentTree} />
     </div>
   );
 }

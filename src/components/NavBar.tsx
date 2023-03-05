@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import CSS from 'csstype';
+import * as CSS from 'csstype';
 const barStyle: CSS.Properties = {
   height: '100%',
   width: '0',
