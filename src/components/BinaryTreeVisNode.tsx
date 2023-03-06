@@ -1,10 +1,12 @@
 import { BinaryTreeMaker, BinaryTreeNode } from 'utils/binaryTree-utils';
 import * as CSS from 'csstype';
 const cellStyles: CSS.Properties = {
+  display: 'flex',
+  justifyContent: 'center',
   border: '1px solid red',
   borderRadius: '50%',
   padding: '1%',
-  margin: '1%',
+  margin: '1% auto',
   overflow: 'hidden',
 };
 const cellPStyles: CSS.Properties = {

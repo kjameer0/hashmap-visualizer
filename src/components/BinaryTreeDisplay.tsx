@@ -2,14 +2,20 @@ import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/bin
 import BinaryTreeVisNode from './BinaryTreeVisNode';
 const gridStyles = {
   display: 'grid',
-  border: '1px solid white',
-  overflow: 'auto',
+  border: '0px solid white',
+  overflow: 'scroll',
+  width: '102%',
+  margin: 'auto -1%',
+  //backgroundColor: 'navy',
   //width: '90vw',
 };
 const rowStyles = {
   display: 'flex',
   justifyContent: 'space-evenly',
   border: '1px solid blue',
+  width: '100%',
+  // paddingLeft: '20%',
+  // paddingRight: '20%',
 };
 
 export default function BinaryTreeDisplay({
