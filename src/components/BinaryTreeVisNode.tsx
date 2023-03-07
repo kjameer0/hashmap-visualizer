@@ -1,4 +1,5 @@
 import { BinaryTreeMaker, BinaryTreeNode } from 'utils/binaryTree-utils';
+import { Textfit } from 'react-textfit';
 import * as CSS from 'csstype';
 const cellStyles: CSS.Properties = {
   display: 'flex',

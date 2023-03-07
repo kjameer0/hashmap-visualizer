@@ -1,11 +1,12 @@
 import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
 import BinaryTreeVisNode from './BinaryTreeVisNode';
-const gridStyles = {
-  display: 'grid',
+import * as CSS from 'csstype';
+const gridStyles: CSS.Properties = {
+  display: 'flex',
   border: '0px solid white',
-  overflow: 'scroll',
-  width: '102%',
-  margin: 'auto -1%',
+  width: '100%',
+  //overflow: 'scroll',
+  flexWrap: 'wrap',
   //backgroundColor: 'navy',
   //width: '90vw',
 };
