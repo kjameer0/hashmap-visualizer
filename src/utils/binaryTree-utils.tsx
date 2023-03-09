@@ -13,7 +13,7 @@ export class BinaryTreeMaker {
     return this.size;
   }
   getVal(idx: number) {
-    return this.tree[idx];
+    return this.tree[idx] || 'null';
   }
   getParentVal(idx: number) {
     return this.tree[Math.floor((idx - 1) / 2)];
@@ -37,7 +37,9 @@ export class BinaryTreeMaker {
   insert(val: BinaryTreeNode, idx: number, spot: leftOrRight) {
     let positionOfNewNode;
     if (idx !== 0 && spot !== 'root') {
-      if (!this.getVal(idx)) throw new Error('parent does not exist');
+      if (this.getVal(idx) === 'null') {
+        throw new Error('parent does not exist');
+      }
     }
     if (spot === 'root') {
       positionOfNewNode = 0;
@@ -84,7 +86,6 @@ export function makeRows(tree: BinaryTreeMaker = new BinaryTreeMaker(['1', '2', 
     const cur = [] as BinaryTreeNode[];
     let numberOfNodes = 0;
     while (numberOfNodes < nodesPerRow) {
-      console.log(tree.getVal(pointer));
       cur.push(tree.getVal(pointer) || null);
       pointer++;
       numberOfNodes++;

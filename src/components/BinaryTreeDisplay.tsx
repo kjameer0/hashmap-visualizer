@@ -1,6 +1,7 @@
 import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
 import BinaryTreeVisNode from './BinaryTreeVisNode';
 import * as CSS from 'csstype';
+import { useState } from 'react';
 const gridStyles: CSS.Properties = {
   display: 'flex',
   border: '0px solid white',
@@ -22,9 +23,15 @@ const rowStyles = {
 export default function BinaryTreeDisplay({
   currentTree,
   setCurrentTree,
+  selected,
+  setSelected,
+  setOutput,
 }: {
   currentTree: BinaryTreeMaker;
   setCurrentTree: (tree: BinaryTreeMaker) => void;
+  selected: number;
+  setSelected: (a: number) => void;
+  setOutput: (a: string) => void;
 }) {
   console.log(makeRows(currentTree));
   return (
@@ -37,9 +44,12 @@ export default function BinaryTreeDisplay({
                 <BinaryTreeVisNode
                   key={index}
                   val={node || 'null'}
+                  setSelected={setSelected}
+                  selected={selected}
                   currentTree={currentTree}
                   setCurrentTree={setCurrentTree}
-                  idx={index + idx - 1}
+                  setOutput={setOutput}
+                  idx={index + 2 ** idx - 1}
                 />
               );
             })}

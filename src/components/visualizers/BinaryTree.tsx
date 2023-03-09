@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BinaryTreeMaker, BinaryTreeNode, generateRandomBinaryTree } from 'utils/binaryTree-utils';
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
 //use style objects
@@ -48,19 +48,30 @@ export default function BinaryTree() {
   );
   const [val, setVal] = useState('');
   const [errorText, setErrorText] = useState('');
-  const [output, setOutPut] = useState('');
-  const [selected, setSelected] = useState(0);
+  const [output, setOutput] = useState('');
+  const [selected, setSelected] = useState(-1);
 
+  // useEffect(() => {
+  //   setOutPut(currentTree.getVal(selected));
+  // }, [selected]);
   return (
     <div className="container">
       <h1>Binary Tree</h1>
       <div className="btree-fields">
-        <p>Value:</p>
+        <h2>Value:</h2>
         <label htmlFor="btree-val">
           <input type="text" value={val} onChange={(e) => setVal(e.target.value)} />
         </label>
+        <h2>Output: {output}</h2>
+        <h2>Error: {errorText}</h2>
       </div>
-      <BinaryTreeDisplay setCurrentTree={setCurrentTree} currentTree={currentTree} />
+      <BinaryTreeDisplay
+        setCurrentTree={setCurrentTree}
+        currentTree={currentTree}
+        selected={selected}
+        setSelected={setSelected}
+        setOutput={setOutput}
+      />
     </div>
   );
 }

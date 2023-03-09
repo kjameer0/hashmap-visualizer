@@ -21,11 +21,12 @@ export default function HashMap() {
     setSelected('');
   }, [hashmap]);
 
-  useEffect(() => {
-    if (selected.length > 0 && hashKey !== selected) {
-      setSelected('');
-    }
-  }, [hashKey]);
+  // useEffect(() => {
+  //   //
+  //   if (selected.length > 0 && hashKey !== selected) {
+  //     setSelected('');
+  //   }
+  // }, [hashKey]);
   function resetFields() {
     // reset text fields
     setHashKey('');
@@ -113,6 +114,21 @@ export default function HashMap() {
     if (e.key !== 'Enter') return;
     if (field === 'set') handleSet();
   }
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement>,
+    setFunc: (s: string) => void,
+    field?: string
+  ) {
+    setFunc(e.target.value);
+    if (field === 'hashKey') {
+      if (selected.length > 0 && e.target.value !== selected) {
+        setSelected('');
+      }
+      if (hashmap.has(e.target.value)) {
+        setSelected(e.target.value);
+      }
+    }
+  }
   return (
     <div className="container">
       <h1>HashMap</h1>
@@ -134,7 +150,7 @@ export default function HashMap() {
                 type={'text'}
                 value={hashKey}
                 placeholder="Enter key"
-                onChange={(e) => setHashKey(e.target.value)}
+                onChange={(e) => handleChange(e, setHashKey, 'hashKey')}
                 onKeyDown={(e) => handleEnter(e, 'set')}
               />
             </label>

@@ -1,4 +1,3 @@
-import { Header } from 'components/Header';
 import { Button } from 'components/Button';
 import NavBar from 'components/NavBar';
 import { useState } from 'react';
