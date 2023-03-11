@@ -26,12 +26,24 @@ export default function BinaryTreeDisplay({
   selected,
   setSelected,
   setOutput,
+  parentSelect,
+  setParentSelect,
+  leftChild,
+  setLeftChild,
+  rightChild,
+  setRightChild,
 }: {
   currentTree: BinaryTreeMaker;
   setCurrentTree: (tree: BinaryTreeMaker) => void;
   selected: number;
   setSelected: (a: number) => void;
   setOutput: (a: string) => void;
+  parentSelect: number;
+  leftChild: number;
+  rightChild: number;
+  setParentSelect: (s: number) => void;
+  setLeftChild: (s: number) => void;
+  setRightChild: (s: number) => void;
 }) {
   console.log(makeRows(currentTree));
   return (
@@ -50,6 +62,12 @@ export default function BinaryTreeDisplay({
                   setCurrentTree={setCurrentTree}
                   setOutput={setOutput}
                   idx={index + 2 ** idx - 1}
+                  parentSelect={parentSelect}
+                  setParentSelect={setParentSelect}
+                  leftChild={leftChild}
+                  setLeftChild={setLeftChild}
+                  rightChild={rightChild}
+                  setRightChild={setRightChild}
                 />
               );
             })}

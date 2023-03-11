@@ -50,10 +50,10 @@ export default function BinaryTree() {
   const [errorText, setErrorText] = useState('');
   const [output, setOutput] = useState('');
   const [selected, setSelected] = useState(-1);
+  const [parentSelect, setParentSelect] = useState(-1);
+  const [leftChild, setLeftChild] = useState(-1);
+  const [rightChild, setRightChild] = useState(-1);
 
-  // useEffect(() => {
-  //   setOutPut(currentTree.getVal(selected));
-  // }, [selected]);
   return (
     <div className="container">
       <h1>Binary Tree</h1>
@@ -71,6 +71,12 @@ export default function BinaryTree() {
         selected={selected}
         setSelected={setSelected}
         setOutput={setOutput}
+        parentSelect={parentSelect}
+        setParentSelect={setParentSelect}
+        leftChild={leftChild}
+        setLeftChild={setLeftChild}
+        rightChild={rightChild}
+        setRightChild={setRightChild}
       />
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BinaryTreeMaker, BinaryTreeNode } from 'utils/binaryTree-utils';
+import { nodeStyleGenerator } from 'styles/btree-styles';
 import * as CSS from 'csstype';
 
 const cellPStyles: CSS.Properties = {
@@ -16,6 +17,12 @@ export default function BinaryTreeVisNode({
   selected,
   setSelected,
   setOutput,
+  parentSelect,
+  setParentSelect,
+  leftChild,
+  setLeftChild,
+  rightChild,
+  setRightChild,
 }: {
   currentTree: BinaryTreeMaker;
   setCurrentTree: (tree: BinaryTreeMaker) => void;
@@ -24,26 +31,34 @@ export default function BinaryTreeVisNode({
   selected: number;
   setSelected: (s: number) => void;
   setOutput: (s: string) => void;
+  parentSelect: number;
+  leftChild: number;
+  rightChild: number;
+  setParentSelect: (s: number) => void;
+  setLeftChild: (s: number) => void;
+  setRightChild: (s: number) => void;
 }) {
-  //const [flag, setFlag] = useState(false);
-  const cellStyles: CSS.Properties = {
-    display: 'flex',
-    justifyContent: 'center',
-    border: '1px solid',
-    borderRadius: selected === idx ? '0%' : '50%',
-    padding: '1%',
-    margin: '1% auto',
-    overflow: 'hidden',
-    backgroundColor: selected === idx ? '#763DD4' : undefined,
-    borderColor: selected === idx ? 'blue' : 'red',
-    // flex: flag === true ? '0.1' : undefined,
-    //width: selected === idx ? '200px' : 'auto',
-  };
-
+  const cellStyles: CSS.Properties = nodeStyleGenerator(
+    selected,
+    leftChild,
+    rightChild,
+    parentSelect,
+    idx
+  );
   function handleSelect() {
+    if (selected === idx) {
+      setSelected(-1);
+      setOutput('');
+      setParentSelect(-1);
+      setLeftChild(-1);
+      setRightChild(-1);
+      return;
+    }
     setSelected(idx);
     setOutput(currentTree.getVal(idx));
-    // setFlag(!flag);
+    setParentSelect(currentTree.getParentIdx(idx));
+    setLeftChild(currentTree.getLeftChildIdx(idx));
+    setRightChild(currentTree.getRightChildIdx(idx));
   }
   return (
     <button
