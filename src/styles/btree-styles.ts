@@ -1,10 +1,11 @@
 export function nodeStyleGenerator(
-  selected: number,
+  selected: number | null,
   leftChild: number,
   rightChild: number,
   parent: number,
   idx: number
 ) {
+  if (selected === null) return {};
   const [selectBGColor, childBGColor, defaultBGColor, parentBGColor] = [
     '#6200ee',
     'skyblue',

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BinaryTreeMaker, BinaryTreeNode } from 'utils/binaryTree-utils';
 import { nodeStyleGenerator } from 'styles/btree-styles';
 import * as CSS from 'csstype';
+import { produceErrorMessage } from 'utils/arr-utils';
 
 const cellPStyles: CSS.Properties = {
   textAlign: 'center',
@@ -23,12 +24,14 @@ export default function BinaryTreeVisNode({
   setLeftChild,
   rightChild,
   setRightChild,
+  handleDelete,
+  focused,
 }: {
   currentTree: BinaryTreeMaker;
   setCurrentTree: (tree: BinaryTreeMaker) => void;
   idx: number;
   val: BinaryTreeNode;
-  selected: number;
+  selected: number | null;
   setSelected: (s: number) => void;
   setOutput: (s: string) => void;
   parentSelect: number;
@@ -37,6 +40,8 @@ export default function BinaryTreeVisNode({
   setParentSelect: (s: number) => void;
   setLeftChild: (s: number) => void;
   setRightChild: (s: number) => void;
+  handleDelete: () => void;
+  focused: boolean;
 }) {
   const cellStyles: CSS.Properties = nodeStyleGenerator(
     selected,
@@ -45,6 +50,15 @@ export default function BinaryTreeVisNode({
     parentSelect,
     idx
   );
+  function handleKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
+    try {
+      if (selected !== idx) return;
+      if (!focused && e.key === 'Backspace') handleDelete();
+    } catch (error) {
+      produceErrorMessage(error);
+    }
+  }
+
   function handleSelect() {
     if (selected === idx) {
       setSelected(-1);
@@ -64,6 +78,7 @@ export default function BinaryTreeVisNode({
     <button
       style={{ ...cellStyles, visibility: val === 'null' ? 'hidden' : 'visible' }}
       onClick={handleSelect}
+      onKeyDown={(e) => handleKeyPress(e)}
     >
       <p style={cellPStyles}>{val === 'null' ? idx : val}</p>
     </button>

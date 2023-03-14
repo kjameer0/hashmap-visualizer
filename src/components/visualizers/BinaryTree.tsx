@@ -57,6 +57,7 @@ export default function BinaryTree() {
   const [parentSelect, setParentSelect] = useState(-1);
   const [leftChild, setLeftChild] = useState(-1);
   const [rightChild, setRightChild] = useState(-1);
+  const [focused, setFocused] = useState(false);
 
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
@@ -119,7 +120,7 @@ export default function BinaryTree() {
       setErrorText(produceErrorMessage(error));
     }
   }
-  function handleDelete(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleDelete() {
     try {
       if (selected === null || selected < 0) {
         throw new Error('choose value to delete');
@@ -142,6 +143,8 @@ export default function BinaryTree() {
             <input
               type="text"
               value={val}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
               onChange={(e) => setVal(e.target.value)}
               style={{ color: 'black' }}
             />
@@ -152,6 +155,8 @@ export default function BinaryTree() {
               type="text"
               style={{ color: 'black' }}
               value={String(selectedText)}
+              onFocus={() => setFocused(true)}
+              onBlur={() => setFocused(false)}
               onChange={(e) => handleSelectedChange(e)}
             />
           </label>
@@ -190,6 +195,8 @@ export default function BinaryTree() {
         setLeftChild={setLeftChild}
         rightChild={rightChild}
         setRightChild={setRightChild}
+        handleDelete={handleDelete}
+        focused={focused}
       />
     </div>
   );
