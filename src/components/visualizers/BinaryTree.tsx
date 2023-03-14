@@ -125,9 +125,8 @@ export default function BinaryTree() {
         throw new Error('choose value to delete');
       }
       const newTree = new BinaryTreeMaker([...currentTree.tree]);
-      newTree.insert(val, selected, 'left');
+      newTree.delete(selected);
       setCurrentTree(newTree);
-      setOutput(val);
       setVal('');
     } catch (error) {
       setErrorText(produceErrorMessage(error));
