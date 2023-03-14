@@ -43,3 +43,10 @@ export function nodeStyleGenerator(
   };
   return styles;
 }
+
+export function outputDivStyles() {
+  return {
+    border: `1px solid gray`,
+    display: 'flex',
+  };
+}

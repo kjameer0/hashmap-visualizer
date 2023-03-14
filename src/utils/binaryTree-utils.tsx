@@ -18,6 +18,14 @@ export class BinaryTreeMaker {
   getParentVal(idx: number) {
     return this.tree[Math.floor((idx - 1) / 2)];
   }
+  //sets value at given idx if parent is not null
+  setValAtIdx(val: string | null, idx: number | null) {
+    if (idx === null) return;
+    if (val === null) {
+      this.delete(idx);
+    }
+    this.tree[idx] = val;
+  }
   getLeftChildVal(idx: number) {
     return this.tree[Math.floor(idx * 2 + 1)];
   }

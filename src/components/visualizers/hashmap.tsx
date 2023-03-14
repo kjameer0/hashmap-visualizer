@@ -21,12 +21,6 @@ export default function HashMap() {
     setSelected('');
   }, [hashmap]);
 
-  // useEffect(() => {
-  //   //
-  //   if (selected.length > 0 && hashKey !== selected) {
-  //     setSelected('');
-  //   }
-  // }, [hashKey]);
   function resetFields() {
     // reset text fields
     setHashKey('');
