@@ -31,7 +31,10 @@ export default function NavBar({
   setOpen: (open: boolean) => void;
 }) {
   return (
-    <nav className={'nav-bar'} style={{ ...barStyle, width: open ? '10rem' : '0rem' }}>
+    <nav
+      className={'nav-bar'}
+      style={{ ...barStyle, width: open ? '9rem' : '0rem', display: open ? 'block' : 'none' }}
+    >
       <ul>
         <li>
           <button className="nav-button" onClick={() => setOpen(!open)}>

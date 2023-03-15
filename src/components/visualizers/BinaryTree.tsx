@@ -58,7 +58,6 @@ export default function BinaryTree() {
   const [leftChild, setLeftChild] = useState(-1);
   const [rightChild, setRightChild] = useState(-1);
   const [focused, setFocused] = useState(false);
-
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const val = e.target.value;
@@ -66,12 +65,12 @@ export default function BinaryTree() {
         throw new Error('invalid input');
       }
       setSelectedText(val);
-      const newVal = Number(val);
+      const newVal = val === '' ? -1 : Number(val);
       setSelected(newVal);
       setParentSelect(currentTree.getParentIdx(newVal));
       setLeftChild(currentTree.getLeftChildIdx(newVal));
-      setRightChild(currentTree.getRightChildIdx(newVal));
-      setOutput(currentTree.getVal(Number(newVal)));
+      setRightChild(newVal === -1 ? -1 : currentTree.getRightChildIdx(newVal));
+      setOutput(currentTree.getVal(newVal));
       setErrorText('');
     } catch (error) {
       setErrorText(produceErrorMessage(error));
@@ -112,7 +111,7 @@ export default function BinaryTree() {
         throw new Error('enter a value and select a node');
       }
       const newTree = new BinaryTreeMaker([...currentTree.tree]);
-      newTree.insert(val, selected, 'left');
+      newTree.insert(val, selected, 'right');
       setCurrentTree(newTree);
       setOutput(val);
       setVal('');

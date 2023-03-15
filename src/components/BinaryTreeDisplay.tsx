@@ -1,7 +1,7 @@
 import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
 import BinaryTreeVisNode from './BinaryTreeVisNode';
 import * as CSS from 'csstype';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 const gridStyles: CSS.Properties = {
   display: 'flex',
   border: '0px solid white',
@@ -49,7 +49,9 @@ export default function BinaryTreeDisplay({
   handleDelete: () => void;
   focused: boolean;
 }) {
-  console.log(makeRows(currentTree));
+  useEffect(() => {
+    console.log(focused);
+  });
   return (
     <div className="btree-grid" style={gridStyles}>
       {makeRows(currentTree).map((e, idx) => {

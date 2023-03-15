@@ -52,6 +52,7 @@ export default function BinaryTreeVisNode({
   );
   function handleKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
     try {
+      console.log(selected, idx);
       if (selected !== idx) return;
       if (!focused && e.key === 'Backspace') handleDelete();
     } catch (error) {
