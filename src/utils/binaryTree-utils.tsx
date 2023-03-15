@@ -24,6 +24,9 @@ export class BinaryTreeMaker {
     if (val === null) {
       this.delete(idx);
     }
+    if (this.getVal(idx) === 'null') {
+      this.size++;
+    }
     this.tree[idx] = val;
   }
   getLeftChildVal(idx: number) {

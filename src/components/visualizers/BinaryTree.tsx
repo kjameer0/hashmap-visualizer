@@ -3,7 +3,7 @@ import { produceErrorMessage } from 'utils/arr-utils';
 import { BinaryTreeMaker, BinaryTreeNode, generateRandomBinaryTree } from 'utils/binaryTree-utils';
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
 import { outputDivStyles } from 'styles/btree-styles';
-//use style objects
+
 type selectType = number | null;
 export default function BinaryTree() {
   const [currentTree, setCurrentTree] = useState(
@@ -172,6 +172,9 @@ export default function BinaryTree() {
           </button>
           <button className="main-button" onClick={handleDelete}>
             Delete
+          </button>
+          <button className="main-button" onClick={() => setOutput(String(currentTree.getSize()))}>
+            Size
           </button>
         </div>
         <div style={outputDivStyles()}>

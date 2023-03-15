@@ -162,7 +162,8 @@ li > button{
   vertical-align: middle;
   will-change: transform,opacity;
 }
-
+.main-button:focus {
+}
 .main-button:not(:disabled) {
   background-color: #6200ee;
 }
@@ -183,7 +184,7 @@ li > button{
 
 
 .main-button:focus {
-  box-shadow: rgba(0, 0, 0, .2) 0 2px 4px -1px, rgba(0, 0, 0, .14) 0 4px 5px 0, rgba(0, 0, 0, .12) 0 1px 10px 0;
+  box-shadow: 0 0 0 2px #f90;
 }
 
 .main-button:active {
