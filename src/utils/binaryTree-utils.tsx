@@ -1,6 +1,6 @@
 import { generateRandomArray } from './arr-utils';
 export type BinaryTreeNode = string | null;
-type leftOrRight = 'left' | 'right' | 'root';
+type leftOrRight = 'left' | 'right';
 //array implementation of binary tree
 export class BinaryTreeMaker {
   tree: BinaryTreeNode[];
@@ -62,34 +62,36 @@ export class BinaryTreeMaker {
   getRightChildIdx(idx: number) {
     return Math.floor(idx * 2 + 2);
   }
-  //checks which node you want this to be a child of or if its the root of the tree
+  //checks which node you want this to be a child of and if its going
+  // to node.left or node.right
   insert(val: BinaryTreeNode, idx: number, spot: leftOrRight) {
     let positionOfNewNode;
-    if (idx !== 0 && spot !== 'root') {
-      if (this.getVal(idx) === 'null') {
-        throw new Error('parent does not exist');
-      }
-    }
-    if (spot === 'root') {
-      positionOfNewNode = 0;
-    } else if (spot === 'left') {
+    //choose correct index if new node is on left or right
+    console.log(this.tree);
+    if (spot === 'left') {
       positionOfNewNode = this.getLeftChildIdx(idx);
+      console.log(positionOfNewNode);
     } else {
+      console.log('hi');
       positionOfNewNode = this.getRightChildIdx(idx);
     }
+    if (val === 'null') {
+      this.delete(positionOfNewNode);
+    }
     this.tree[positionOfNewNode] = val;
-    if (val !== 'null') this.size++;
   }
   //recursively
   delete(idx: number) {
-    if (this.getLeftChildVal(idx) || this.getLeftChildVal(idx) === '') {
+    if (this.getLeftChildVal(idx) && this.getLeftChildVal(idx) !== 'null') {
       this.delete(this.getLeftChildIdx(idx));
     }
-    if (this.getRightChildVal(idx) || this.getRightChildVal(idx) === '') {
+    if (this.getRightChildVal(idx) && this.getRightChildVal(idx) !== 'null') {
       this.delete(this.getRightChildIdx(idx));
     }
-    this.tree[idx] = null;
-    this.size--;
+    if (this.getVal(idx) !== 'null') {
+      this.size--;
+    }
+    this.tree[idx] = 'null';
   }
   numRows() {
     return Math.ceil(getBaseLog(2, this.size));
