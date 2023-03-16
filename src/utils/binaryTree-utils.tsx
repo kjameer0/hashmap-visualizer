@@ -80,7 +80,7 @@ export class BinaryTreeMaker {
     }
     this.tree[positionOfNewNode] = val;
   }
-  //recursively
+  //recursively check if left and right sbtrees have vals, and delete them
   delete(idx: number) {
     if (this.getLeftChildVal(idx) && this.getLeftChildVal(idx) !== 'null') {
       this.delete(this.getLeftChildIdx(idx));
@@ -88,16 +88,17 @@ export class BinaryTreeMaker {
     if (this.getRightChildVal(idx) && this.getRightChildVal(idx) !== 'null') {
       this.delete(this.getRightChildIdx(idx));
     }
+    //reduce size of tree if the current node has a value
     if (this.getVal(idx) !== 'null') {
       this.size--;
     }
     this.tree[idx] = 'null';
   }
+  //how many rows need to be generated to make the tree look like a binary tree
   numRows() {
     return Math.ceil(getBaseLog(2, this.size));
   }
 }
-
 export function generateRandomBinaryTree(size: number) {
   const treeArray = generateRandomArray(size || 10);
   const tree = new BinaryTreeMaker(treeArray as BinaryTreeNode[]);
@@ -106,23 +107,32 @@ export function generateRandomBinaryTree(size: number) {
 export function getBaseLog(x: number, y: number) {
   return Math.log(y) / Math.log(x);
 }
+//return array of arrays that contain the values that would be in each level
+//of a btree
 export function makeRows(tree: BinaryTreeMaker = new BinaryTreeMaker(['1', '2', '3', '4', '5'])) {
   //each row is a div containing 2^row values from tree
   const size = tree.size;
+  //pointer saves current position of element from tree to add to row
   let pointer = 0;
+  //grid contains all of the arrays that store vals in every row
   const grid = [];
   const numberOfRows = Math.ceil(getBaseLog(2, size));
+  //the first row will have one node
   let nodesPerRow = 1;
+  //go through each row we are creating
   for (let i = 0; i <= numberOfRows; i++) {
-    const cur = [] as BinaryTreeNode[];
+    //create new row for values in current row
+    const currentRow = [] as BinaryTreeNode[];
     let numberOfNodes = 0;
+    //keep adding values from tree to current row til its been filled
     while (numberOfNodes < nodesPerRow) {
-      cur.push(tree.getVal(pointer) || null);
+      currentRow.push(tree.getVal(pointer) || null);
       pointer++;
       numberOfNodes++;
     }
+    //increase nodes per row to reflect net row size in tree
     nodesPerRow *= 2;
-    grid.push(cur);
+    grid.push(currentRow);
   }
   return grid;
 }
