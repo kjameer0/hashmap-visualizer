@@ -41,8 +41,8 @@ export class BinaryTreeMaker {
     if (val === 'null') {
       this.delete(idx);
     }
-    //if
-    if (this.getVal(idx) === 'null') {
+    //if added val is not null and current val is null add 1 to size
+    if (this.getVal(idx) === 'null' && val !== 'null') {
       this.size++;
     }
     this.tree[idx] = val;
@@ -78,7 +78,7 @@ export class BinaryTreeMaker {
       positionOfNewNode = this.getRightChildIdx(idx);
     }
     this.tree[positionOfNewNode] = val;
-    this.size++;
+    if (val !== 'null') this.size++;
   }
   //recursively
   delete(idx: number) {
