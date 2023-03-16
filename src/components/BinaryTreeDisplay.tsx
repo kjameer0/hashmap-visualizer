@@ -1,23 +1,21 @@
-import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
-import BinaryTreeVisNode from './BinaryTreeVisNode';
-import * as CSS from 'csstype';
 import { useEffect, useState } from 'react';
+//helpers
+import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
+//components
+import BinaryTreeVisNode from './BinaryTreeVisNode';
+//styles
+import * as CSS from 'csstype';
 const gridStyles: CSS.Properties = {
   display: 'flex',
   border: '0px solid white',
   width: '100%',
-  //overflow: 'scroll',
   flexWrap: 'wrap',
-  //backgroundColor: 'navy',
-  //width: '90vw',
 };
 const rowStyles = {
   display: 'flex',
   justifyContent: 'space-evenly',
   border: '1px solid blue',
   width: '100%',
-  // paddingLeft: '20%',
-  // paddingRight: '20%',
 };
 
 export default function BinaryTreeDisplay({
@@ -49,9 +47,6 @@ export default function BinaryTreeDisplay({
   handleDelete: () => void;
   focused: boolean;
 }) {
-  useEffect(() => {
-    console.log(focused);
-  });
   return (
     <div className="btree-grid" style={gridStyles}>
       {makeRows(currentTree).map((e, idx) => {
@@ -85,5 +80,3 @@ export default function BinaryTreeDisplay({
     </div>
   );
 }
-
-

@@ -7,23 +7,41 @@ export class BinaryTreeMaker {
   size: number;
   constructor(tree: BinaryTreeNode[]) {
     this.tree = tree;
-    this.size = tree.length;
+    const startSize = this.calculateSize();
+    this.size = startSize;
   }
+  //count all non null values in the tree
+  calculateSize() {
+    //loop tree and find non null values
+    let size = 0;
+    this.tree.forEach((e) => {
+      if (!e || e === 'null') return;
+      size++;
+    });
+    return size;
+  }
+  //total number of non null nodes
   getSize() {
     return this.size;
   }
+  //find value at given index in array
   getVal(idx: number) {
     return this.tree[idx] || 'null';
   }
+  //get value of parent node
   getParentVal(idx: number) {
     return this.tree[Math.floor((idx - 1) / 2)];
   }
   //sets value at given idx if parent is not null
   setValAtIdx(val: string | null, idx: number | null) {
+    //no index number means no spot to set value
     if (idx === null) return;
-    if (val === null) {
+    //if setting a value to null, delete every child node
+    //to preserve tree structure
+    if (val === 'null') {
       this.delete(idx);
     }
+    //if
     if (this.getVal(idx) === 'null') {
       this.size++;
     }
