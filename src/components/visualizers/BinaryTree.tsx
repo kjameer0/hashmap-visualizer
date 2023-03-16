@@ -58,6 +58,7 @@ export default function BinaryTree() {
   const [leftChild, setLeftChild] = useState(-1);
   const [rightChild, setRightChild] = useState(-1);
   const [focused, setFocused] = useState(false);
+  const [viewInstructions, setViewInstructions] = useState(false);
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const val = e.target.value;
@@ -77,13 +78,18 @@ export default function BinaryTree() {
       setOutput('');
     }
   }
+  function handleRandomTree() {
+    setCurrentTree(generateRandomBinaryTree(10));
+  }
   function handleSetVal(e: React.MouseEvent<HTMLButtonElement>) {
     try {
       if (val === '') {
         throw new Error('enter a value');
       }
       const newTree = new BinaryTreeMaker([...currentTree.tree]);
-      newTree.setValAtIdx(val, selected);
+      //if there is no tree and use hits set val button, make val root of tree
+      const selectedIdx = newTree.size === 0 ? 0 : selected;
+      newTree.setValAtIdx(val, selectedIdx);
       setCurrentTree(newTree);
       setOutput(val);
       setVal('');
@@ -135,6 +141,13 @@ export default function BinaryTree() {
   return (
     <div className="container">
       <h1>Binary Tree</h1>
+      <button
+        className="main-button btree-instructions"
+        onClick={() => setViewInstructions(!viewInstructions)}
+      >
+        {viewInstructions ? 'Collapse Instructions' : 'view instructions'}
+      </button>
+      <p>{!viewInstructions ? '' : 'Type a value and press enter to start a tree '} </p>
       <div className="btree-fields">
         <div className="btree-input" style={{ display: 'flex' }}>
           <h2>Value:</h2>
@@ -175,6 +188,9 @@ export default function BinaryTree() {
           </button>
           <button className="main-button" onClick={() => setOutput(String(currentTree.getSize()))}>
             Size
+          </button>
+          <button className="main-button" onClick={() => handleRandomTree()}>
+            Random Tree
           </button>
         </div>
         <div style={outputDivStyles()}>

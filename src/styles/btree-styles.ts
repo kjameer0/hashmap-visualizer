@@ -51,3 +51,6 @@ export function outputDivStyles() {
     display: 'flex',
   };
 }
+export function treeInputStyles() {
+  return {};
+}
