@@ -99,6 +99,7 @@ export class BinaryTreeMaker {
     return Math.ceil(getBaseLog(2, this.size));
   }
 }
+//creates an array of random values and uses it to make a btree
 export function generateRandomBinaryTree(size: number) {
   const treeArray = generateRandomArray(size || 10);
   const tree = new BinaryTreeMaker(treeArray as BinaryTreeNode[]);
