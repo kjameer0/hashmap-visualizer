@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { produceErrorMessage } from 'utils/arr-utils';
 import { BinaryTreeMaker, BinaryTreeNode, generateRandomBinaryTree } from 'utils/binaryTree-utils';
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
-import { outputDivStyles } from 'styles/btree-styles';
+import { outputDivStyles, treeInputStyles } from 'styles/btree-styles';
 
 type selectType = number | null;
 export default function BinaryTree() {
@@ -154,18 +154,18 @@ export default function BinaryTree() {
           <label htmlFor="btree-val">
             <input
               type="text"
+              style={{ ...treeInputStyles, color: 'white' }}
               value={val}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
               onChange={(e) => setVal(e.target.value)}
-              style={{ color: 'black' }}
             />
           </label>
           <h2>Index:</h2>
           <label htmlFor="btree-index">
             <input
               type="text"
-              style={{ color: 'black' }}
+              style={{ ...treeInputStyles, color: 'white' }}
               value={String(selectedText)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}

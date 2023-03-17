@@ -51,6 +51,15 @@ export function outputDivStyles() {
     display: 'flex',
   };
 }
-export function treeInputStyles() {
-  return {};
-}
+export const treeInputStyles = {
+  display: 'inline-block',
+  fontSize: '1.5rem',
+  backgroundColor: 'transparent',
+  border: '0px solid red',
+  paddingTop: '.9rem',
+  paddingBottom: '.9rem',
+  borderTop: '1px solid gray',
+  borderBottom: '1px solid gray',
+  color: 'white',
+};
+export const treeInputLabelStyles = {};
