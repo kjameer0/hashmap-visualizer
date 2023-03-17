@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { produceErrorMessage } from 'utils/arr-utils';
 import { BinaryTreeMaker, BinaryTreeNode, generateRandomBinaryTree } from 'utils/binaryTree-utils';
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
-import { outputDivStyles, treeInputStyles } from 'styles/btree-styles';
+import {
+  bTreeInputDivStyles,
+  outputDivStyles,
+  bTreeInputStyles,
+  bTreeButtonStyles,
+} from 'styles/btree-styles';
 
 type selectType = number | null;
 export default function BinaryTree() {
@@ -149,31 +154,37 @@ export default function BinaryTree() {
       </button>
       <p>{!viewInstructions ? '' : 'Type a value and press enter to start a tree '} </p>
       <div className="btree-fields">
-        <div className="btree-input" style={{ display: 'flex' }}>
-          <h2>Value:</h2>
-          <label htmlFor="btree-val">
-            <input
-              type="text"
-              style={{ ...treeInputStyles, color: 'white' }}
-              value={val}
-              onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-              onChange={(e) => setVal(e.target.value)}
-            />
-          </label>
-          <h2>Index:</h2>
-          <label htmlFor="btree-index">
-            <input
-              type="text"
-              style={{ ...treeInputStyles, color: 'white' }}
-              value={String(selectedText)}
-              onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-              onChange={(e) => handleSelectedChange(e)}
-            />
-          </label>
+        <div className="btree-input" style={{ display: 'flex', justifyContent: '' }}>
+          <div className="btree-input1" style={bTreeInputDivStyles}>
+            <h2 style={{ fontSize: '1.2rem' }}>Value:</h2>
+            <label htmlFor="btree-val">
+              <input
+                type="text"
+                placeholder="Enter Value"
+                style={{ ...bTreeInputStyles, color: 'white' }}
+                value={val}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                onChange={(e) => setVal(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="btree-input1" style={bTreeInputDivStyles}>
+            <h2 style={{ fontSize: '1.2rem' }}>Index:</h2>
+            <label htmlFor="btree-index">
+              <input
+                type="text"
+                placeholder="Enter Index"
+                style={{ ...bTreeInputStyles, color: 'white' }}
+                value={String(selectedText)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                onChange={(e) => handleSelectedChange(e)}
+              />
+            </label>
+          </div>
         </div>
-        <div className="btree-buttons">
+        <div className="btree-buttons" style={bTreeButtonStyles}>
           <button className="main-button" onClick={handleSetVal}>
             Set Val
           </button>

@@ -1,3 +1,4 @@
+import * as CSS from 'csstype';
 export function nodeStyleGenerator(
   selected: number | null,
   leftChild: number,
@@ -51,7 +52,7 @@ export function outputDivStyles() {
     display: 'flex',
   };
 }
-export const treeInputStyles = {
+export const bTreeInputStyles = {
   display: 'inline-block',
   fontSize: '1.5rem',
   backgroundColor: 'transparent',
@@ -62,4 +63,9 @@ export const treeInputStyles = {
   borderBottom: '1px solid gray',
   color: 'white',
 };
-export const treeInputLabelStyles = {};
+export const bTreeInputDivStyles: CSS.Properties = {
+  display: 'flex',
+  flexBasis: '50%',
+  flexDirection: 'column',
+};
+export const bTreeButtonStyles: CSS.Properties = { margin: '1% auto' };
