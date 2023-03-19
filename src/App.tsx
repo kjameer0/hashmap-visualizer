@@ -8,7 +8,7 @@ function App() {
   const [open, setOpen] = useState(false);
   return (
     <div className="App">
-      <button className="nav-button main-button" onClick={() => setOpen(!open)}>
+      <button id="top-nav" className="nav-button-main main-button" onClick={() => setOpen(!open)}>
         Nav
       </button>
       <NavBar open={open} setOpen={setOpen} />

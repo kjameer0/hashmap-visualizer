@@ -35,28 +35,28 @@ export default function NavBar({
       className={'nav-bar'}
       style={{ ...barStyle, width: open ? '9rem' : '0rem', display: open ? 'block' : 'none' }}
     >
-      <ul>
-        <li>
+      <ul className="nav-ul">
+        <li className="nav-li-item">
           <button className="nav-button" onClick={() => setOpen(!open)}>
             Navigation
           </button>
         </li>
-        <li>
+        <li className="nav-li-item">
           <NavLink className={'nh'} to="/" onClick={() => setOpen(!open)}>
             Home
           </NavLink>
         </li>
-        <li>
+        <li className="nav-li-item">
           <NavLink className={'nh'} to="/arr" onClick={() => setOpen(!open)}>
             Array
           </NavLink>
         </li>
-        <li>
+        <li className="nav-li-item">
           <NavLink className={'nh'} to="/hashmap" onClick={() => setOpen(!open)}>
             HashMap
           </NavLink>
         </li>
-        <li>
+        <li className="nav-li-item">
           <NavLink className={'nh'} to="/binary-tree" onClick={() => setOpen(!open)}>
             Binary Tree
           </NavLink>

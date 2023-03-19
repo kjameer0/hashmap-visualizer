@@ -125,7 +125,7 @@ export default function HashMap() {
   }
   return (
     <div className="container">
-      <h1>HashMap</h1>
+      <h1 className="container-title">HashMap</h1>
       <div className="hash-instructions">
         <h2>Instructions:</h2>
         <p>
@@ -138,9 +138,10 @@ export default function HashMap() {
       <div className={'hash-form'}>
         <div className="hash-input">
           <div className={'hash-field'}>
-            <p>Key:</p>
+            <p className="hash-field-name">Key:</p>
             <label htmlFor="key-field">
               <input
+                className="hash-in-field"
                 type={'text'}
                 value={hashKey}
                 placeholder="Enter key"
@@ -150,9 +151,10 @@ export default function HashMap() {
             </label>
           </div>
           <div className={'hash-field'}>
-            <p>Value:</p>
+            <p className="hash-field-name">Value:</p>
             <label htmlFor="val-field">
               <input
+                className="hash-in-field"
                 type={'text'}
                 value={hashVal}
                 placeholder="Enter value"
@@ -163,41 +165,41 @@ export default function HashMap() {
           </div>
         </div>
         <div className="hash-buttons">
-          <button className="main-button" onClick={handleSet}>
+          <button className="main-button hmap-button" onClick={handleSet}>
             Set
           </button>
-          <button className="main-button" onClick={handleGet}>
+          <button className="main-button hmap-button" onClick={handleGet}>
             Get
           </button>
-          <button className="main-button" onClick={handleHasKey}>
+          <button className="main-button hmap-button" onClick={handleHasKey}>
             Has Key
           </button>
-          <button className="main-button" onClick={handleDelete}>
+          <button className="main-button hmap-button" onClick={handleDelete}>
             Delete
           </button>
-          <button className="main-button" onClick={handleKeys}>
+          <button className="main-button hmap-button" onClick={handleKeys}>
             Keys
           </button>
-          <button className="main-button" onClick={handleValues}>
+          <button className="main-button hmap-button" onClick={handleValues}>
             Values
           </button>
-          <button className="main-button" onClick={handleSize}>
+          <button className="main-button hmap-button" onClick={handleSize}>
             Size
           </button>
-          <button className="main-button" onClick={handleClear}>
+          <button className="main-button hmap-button" onClick={handleClear}>
             Clear
           </button>
-          <button className="main-button" onClick={handleRandom}>
+          <button className="main-button hmap-button" onClick={handleRandom}>
             Random Hash Map
           </button>
         </div>
         <div className="hash-output">
-          <p>Error: {errorText}</p>
-          <p>Output: {output}</p>
+          <p className="hash-output-p">Error: {errorText}</p>
+          <p className="hash-output-p">Output: {output}</p>
         </div>
       </div>
       <div className="hash-visual">
-        <h2>HashMap</h2>
+        <h2 className="ds-head">HashMap</h2>
         <HashVis
           hashmap={hashmap}
           setHashmap={setHashmap}

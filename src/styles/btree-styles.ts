@@ -1,4 +1,5 @@
 import * as CSS from 'csstype';
+import { useState, useEffect } from 'react';
 export function nodeStyleGenerator(
   selected: number | null,
   leftChild: number,
@@ -69,3 +70,22 @@ export const bTreeInputDivStyles: CSS.Properties = {
   flexDirection: 'column',
 };
 export const bTreeButtonStyles: CSS.Properties = { margin: '1% auto' };
+export const useMediaQuery = (screen) => {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const query = `(min-width: ${sizes[screen]})`;
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener('resize', listener);
+    return () => window.removeEventListener('resize', listener);
+  }, [matches, screen]);
+
+  return matches;
+};
+// export const btreeInstructionPStyles: CSS.Properties = {
+//   fontSize,
+// };

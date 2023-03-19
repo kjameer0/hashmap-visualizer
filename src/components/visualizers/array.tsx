@@ -85,7 +85,7 @@ export default function Arr() {
   }
   return (
     <div className="container">
-      <h1>Array Visualizer</h1>
+      <h1 className="container-title">Array Visualizer</h1>
       <p className="sub-title">Press Enter in any text field to submit</p>
       <p className="sub-title">
         Make Random Array button will make 10 length array if field is empty
@@ -210,7 +210,7 @@ export default function Arr() {
         </button>
         <div id="array-container" />
       </div>
-      <h2 className="arr-title">Array</h2>
+      <h2 className="ds-head">Array</h2>
       <ArrList arr={arr} setArr={setArr} />
     </div>
   );

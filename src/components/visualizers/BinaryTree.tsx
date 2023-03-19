@@ -8,52 +8,50 @@ import {
   bTreeInputStyles,
   bTreeButtonStyles,
 } from 'styles/btree-styles';
-
+// const arr =[
+//   '1',
+//   '2',
+//   '3',
+//   '4',
+//   '5',
+//   '6',
+//   '6',
+//   '6',
+//   '6',
+//   '6',
+//   '7000',
+//   '8',
+//   '9',
+//   '10',
+//   '100000',
+//   '6',
+//   '9',
+//   '7',
+//   '6',
+//   '6',
+//   '6',
+//   '7000',
+//   '8',
+//   '9',
+//   '10',
+//   '10000000000',
+//   '6',
+//   '9',
+//   '7',
+//   '6',
+//   '6',
+//   '6',
+//   '7000',
+//   '8',
+//   '9',
+//   '10',
+//   '100000',
+//   '6',
+//   '9',
+// ]
 type selectType = number | null;
 export default function BinaryTree() {
-  const [currentTree, setCurrentTree] = useState(
-    new BinaryTreeMaker([
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '6',
-      '6',
-      '6',
-      '6',
-      '7000',
-      '8',
-      '9',
-      '10',
-      '100000',
-      '6',
-      '9',
-      '7',
-      '6',
-      '6',
-      '6',
-      '7000',
-      '8',
-      '9',
-      '10',
-      '10000000000',
-      '6',
-      '9',
-      '7',
-      '6',
-      '6',
-      '6',
-      '7000',
-      '8',
-      '9',
-      '10',
-      '100000',
-      '6',
-      '9',
-    ])
-  );
+  const [currentTree, setCurrentTree] = useState(new BinaryTreeMaker([]));
   const [val, setVal] = useState('');
   const [errorText, setErrorText] = useState('');
   const [output, setOutput] = useState('');
@@ -145,17 +143,17 @@ export default function BinaryTree() {
   }
   return (
     <div className="container">
-      <h1>Binary Tree</h1>
+      <h1 className="container-title">Binary Tree</h1>
       <button
         className="main-button btree-instructions"
         onClick={() => setViewInstructions(!viewInstructions)}
       >
         {viewInstructions ? 'Collapse Instructions' : 'view instructions'}
       </button>
-      <p>
+      <p className="btree-instructions-paragraph">
         {!viewInstructions
           ? ''
-          : 'Type a value and press enter or click set val to start a tree. clicking on a node to highlight it lets you press Backspace to delete it. You can set the left and right of a highlighted node with the set left and set right buttons. the generate random tree button generates a size 10 binary tree'}{' '}
+          : 'Type a value and press enter or click set val to start a tree. clicking on a node to highlight it lets you press Backspace to delete it. You can set the left and right of a highlighted node with the set left and set right buttons. the generate random tree button generates a size 10 binary tree.'}
       </p>
       <div className="btree-fields">
         <div className="btree-input" style={{ display: 'flex', justifyContent: '' }}>
