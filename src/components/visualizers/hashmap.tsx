@@ -199,7 +199,7 @@ export default function HashMap() {
         </div>
       </div>
       <div className="hash-visual">
-        <h2 className="ds-head">HashMap</h2>
+        <h2 className="hash-list-title">HashMap</h2>
         <HashVis
           hashmap={hashmap}
           setHashmap={setHashmap}

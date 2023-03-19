@@ -273,28 +273,28 @@ input {
 .hash-visual {
   font-size: 1.2rem;
 }
-.hash-visual > ul > li {
+.hash-list-item {
   font-size: 1.2rem;
   border: 1px solid white;
   cursor: pointer;
 }
-.hash-visual > ul > li:hover {
+.hash-list-item:hover {
   background-color: white;
 }
-.hash-visual > ul > li > button {
+.hash-list-button {
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
   padding: .75rem;
   margin: -10px;
 }
-.hash-visual > ul > li  > button > p{
+.hash-list-p{
   margin: .1rem auto;
 }
-.hash-visual > ul > li > button:active {
+.hash-list-item:active {
   background-color: white;
 }
-.hash-visual > h2 {
+.hash-list-title {
   text-align: center;
 }
 /* // styles binary */
