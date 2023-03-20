@@ -67,12 +67,12 @@ export class BinaryTreeMaker {
   insert(val: BinaryTreeNode, idx: number, spot: leftOrRight) {
     let positionOfNewNode;
     //choose correct index if new node is on left or right
-    console.log(this.tree);
+    if (this.getVal(idx) === 'null') {
+      throw 'parent is not a node';
+    }
     if (spot === 'left') {
       positionOfNewNode = this.getLeftChildIdx(idx);
-      console.log(positionOfNewNode);
     } else {
-      console.log('hi');
       positionOfNewNode = this.getRightChildIdx(idx);
     }
     if (val === 'null') {

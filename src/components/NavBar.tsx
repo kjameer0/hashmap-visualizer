@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import * as CSS from 'csstype';
 const barStyle: CSS.Properties = {
@@ -13,16 +12,7 @@ const barStyle: CSS.Properties = {
   paddingTop: '6px',
   transition: '0.5s',
 };
-const liStyle: CSS.Properties = {
-  cursor: 'pointer',
-  fontSize: '1.3rem',
-  transition: '0.3s ease-in-out',
-  display: 'inline-block',
-  position: 'relative',
-  zIndex: 1,
-  padding: '2em 2em 1em 2em',
-  margin: '-2em -1em -1em -1em',
-};
+
 export default function NavBar({
   open,
   setOpen,

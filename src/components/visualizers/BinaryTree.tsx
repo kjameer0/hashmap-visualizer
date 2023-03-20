@@ -82,7 +82,7 @@ export default function BinaryTree() {
     }
   }
   function handleRandomTree() {
-    setCurrentTree(generateRandomBinaryTree(10));
+    setCurrentTree(generateRandomBinaryTree(64));
   }
   function handleSetVal(e: React.MouseEvent<HTMLButtonElement>) {
     try {
