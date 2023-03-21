@@ -8,47 +8,7 @@ import {
   bTreeInputStyles,
   bTreeButtonStyles,
 } from 'styles/btree-styles';
-// const arr =[
-//   '1',
-//   '2',
-//   '3',
-//   '4',
-//   '5',
-//   '6',
-//   '6',
-//   '6',
-//   '6',
-//   '6',
-//   '7000',
-//   '8',
-//   '9',
-//   '10',
-//   '100000',
-//   '6',
-//   '9',
-//   '7',
-//   '6',
-//   '6',
-//   '6',
-//   '7000',
-//   '8',
-//   '9',
-//   '10',
-//   '10000000000',
-//   '6',
-//   '9',
-//   '7',
-//   '6',
-//   '6',
-//   '6',
-//   '7000',
-//   '8',
-//   '9',
-//   '10',
-//   '100000',
-//   '6',
-//   '9',
-// ]
+
 type selectType = number | null;
 export default function BinaryTree() {
   const [currentTree, setCurrentTree] = useState(new BinaryTreeMaker([]));
@@ -62,6 +22,10 @@ export default function BinaryTree() {
   const [rightChild, setRightChild] = useState(-1);
   const [focused, setFocused] = useState(false);
   const [viewInstructions, setViewInstructions] = useState(false);
+
+  useEffect(() => {
+    console.log(currentTree);
+  }, [currentTree]);
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const val = e.target.value;
@@ -82,7 +46,7 @@ export default function BinaryTree() {
     }
   }
   function handleRandomTree() {
-    setCurrentTree(generateRandomBinaryTree(64));
+    setCurrentTree(generateRandomBinaryTree(63));
   }
   function handleSetVal(e: React.MouseEvent<HTMLButtonElement>) {
     try {

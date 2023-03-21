@@ -1,10 +1,5 @@
 @import './styles/reset.css';
-//search the following strings to navigate
-//main styles
-//array styles
-//hashmap styles
 
-//main styles
 * {
   font-size: 20px;
   border: 10px solid blue;
@@ -15,10 +10,11 @@
 body {
   background-color: #403075;
 }
-.App {
+#root {
+  border: 1px solid white;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .nav-ul {
   display: flex;
@@ -187,7 +183,7 @@ body {
   box-shadow: rgba(0, 0, 0, .2) 0 5px 5px -3px, rgba(0, 0, 0, .14) 0 8px 10px 1px, rgba(0, 0, 0, .12) 0 3px 14px 2px;
   background: #A46BF5;
 }
-//array styles
+
 .arr-input-line {
   margin: .5rem auto;
 }
@@ -297,4 +293,4 @@ input {
 .hash-list-title {
   text-align: center;
 }
-/* // styles binary */
+

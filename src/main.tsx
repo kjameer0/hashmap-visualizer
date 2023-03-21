@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import 'tailwindcss/tailwind.css';
 //components
+import Home from 'Home';
 import Arr from 'components/visualizers/Array';
 import Hashmap from 'components/visualizers/Hashmap';
 import BinaryTree from 'components/visualizers/BinaryTree';
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '',
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      },
       {
         path: 'arr',
         element: <Arr />,

@@ -11,11 +11,15 @@ const gridStyles: CSS.Properties = {
   width: '100%',
   flexWrap: 'wrap',
 };
-const rowStyles = {
+const rowStyles: CSS.Properties = {
   display: 'flex',
+  //flex: '1',
+  flexBasis: '100%',
+  flexGrow: '6',
   justifyContent: 'space-evenly',
-  border: '1px solid blue',
-  width: '100%',
+  border: '0px solid blue',
+
+  overflowX: 'auto',
 };
 
 export default function BinaryTreeDisplay({
