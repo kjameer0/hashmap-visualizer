@@ -3,8 +3,9 @@ export default function HomeIcon({ name, src, link }: { name: string; src: strin
   return (
     <NavLink to={link}>
       <div className="home-icon">
+        <h2 className="ds-title">{name}</h2>
+
         <img src={src} alt={`data structure ${name}`} />
-        <h2>{name}</h2>
       </div>
     </NavLink>
   );

@@ -8,7 +8,7 @@ export default function Home() {
   ];
   return (
     <section className="container home-container">
-      <h1 className="container-title">Home</h1>
+      <h1 className="container-title">Data Structure Visualizer</h1>
       {structures.map((e, idx) => {
         return <HomeIcon name={e.name} key={idx} src={e.src} link={e.link} />;
       })}

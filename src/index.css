@@ -11,11 +11,26 @@ body {
   background-color: #403075;
 }
 #root {
-  border: 1px solid white;
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
 }
+.home-icon {
+  cursor: pointer;
+  border: 5px solid lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home-icon:hover {
+  border: 5px solid green;
+}
+.ds-title {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 200%;
+}
+
 .nav-ul {
   display: flex;
   height: 100%;
@@ -294,3 +309,8 @@ input {
   text-align: center;
 }
 
+@media only screen and (max-width: 500px) {
+  * {
+    font-size:10px;
+  }
+}
