@@ -122,7 +122,7 @@ export default function BinaryTree() {
       <p className="btree-instructions-paragraph">
         {!viewInstructions
           ? ''
-          : 'Type a value and press enter or click set val to start a tree. clicking on a node to highlight it lets you press Backspace to delete it. You can set the left and right of a highlighted node with the set left and set right buttons. the generate random tree button generates a size 10 binary tree.'}
+          : 'Type a value and press enter or click set value to start a tree. Clicking on a node to highlight it lets you press Backspace to delete it. You can set the left and right of a highlighted node with the set left and set right buttons. The generate tree button creates a tree of random values.'}
       </p>
       <div className="btree-fields">
         <div className="btree-input" style={{ display: 'flex', justifyContent: '' }}>
