@@ -7,18 +7,14 @@ import BinaryTreeVisNode from './BinaryTreeVisNode';
 import * as CSS from 'csstype';
 const gridStyles: CSS.Properties = {
   display: 'flex',
-  border: '0px solid white',
   width: '100%',
   flexWrap: 'wrap',
 };
 const rowStyles: CSS.Properties = {
   display: 'flex',
-  //flex: '1',
   flexBasis: '100%',
-  flexGrow: '6',
   justifyContent: 'space-evenly',
-  border: '0px solid blue',
-
+  flexWrap: 'nowrap',
   overflowX: 'auto',
 };
 
@@ -55,7 +51,7 @@ export default function BinaryTreeDisplay({
     <div className="btree-grid" style={gridStyles}>
       {makeRows(currentTree).map((e, idx) => {
         return (
-          <div key={idx} style={{ ...rowStyles }}>
+          <div key={idx} style={{ ...rowStyles, flexWrap: e.length > 32 ? 'wrap' : 'nowrap' }}>
             {e.map((node, index) => {
               return (
                 <BinaryTreeVisNode

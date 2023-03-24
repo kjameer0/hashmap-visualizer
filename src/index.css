@@ -8,7 +8,7 @@
   box-shadow: 0 0 0 2px #f90; /* or whatever colour you'd prefer */
 }
 body {
-  background-color: #403075;
+  background-color: #261758;
 }
 #root {
   display: flex;
@@ -67,7 +67,7 @@ body {
 }
 .nh {
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   transition: 0.3s ease-in-out;
   display: inline-block;
   position: relative;
@@ -128,11 +128,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .ds-head {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   text-align: center;
 }
@@ -149,7 +149,7 @@ body {
   font-family: Roboto,sans-serif;
   font-size: .75rem;
   font-weight: 500;
-  height: 1.8rem;
+  height: 1.3rem;
   justify-content: center;
   letter-spacing: .0892857em;
   line-height: normal;
@@ -229,7 +229,7 @@ li {
 }
 
 input {
-  height: 1.7rem;
+  height: 1.3rem;
   background-color: white;
   vertical-align: middle;
 }
@@ -251,7 +251,7 @@ input {
   flex-basis: 50%;
 }
 .hash-field-name {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 .hash-in-field {
   display: inline-block;
@@ -312,5 +312,10 @@ input {
 @media only screen and (max-width: 500px) {
   * {
     font-size:10px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  * {
+    font-size: 15px;
   }
 }

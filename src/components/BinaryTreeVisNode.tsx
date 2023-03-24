@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { BinaryTreeMaker, BinaryTreeNode } from 'utils/binaryTree-utils';
 import { nodeStyleGenerator } from 'styles/btree-styles';
 import * as CSS from 'csstype';
