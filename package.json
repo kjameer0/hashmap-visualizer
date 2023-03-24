@@ -14,12 +14,13 @@
   ],
   "author": "Malolan B. <uchihamalolan@gmail.com> (https://twitter.com/malolan12)",
   "license": "MIT",
-  "homepage": "https://github.com/uchihamalolan/vite-react-ts",
+  "homepage": "https://kjameer0.github.io/hashmap-visualizer/",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "jest",
     "serve": "vite preview",
+    "deploy": "gh-pages -d dist",
     "prepare": "husky install",
     "commit": "commit",
     "format": "prettier --write --ignore-unknown .",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "dangerously-set-html-content": "^1.0.13",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dnd": "^16.0.1",

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import * as CSS from 'csstype';
+import { baseUrl } from 'main';
 const barStyle: CSS.Properties = {
   height: '100%',
   width: '0',
@@ -32,22 +33,22 @@ export default function NavBar({
           </button>
         </li>
         <li className="nav-li-item">
-          <NavLink className={'nh'} to="/" onClick={() => setOpen(!open)}>
+          <NavLink className={'nh'} to={baseUrl + '/'} onClick={() => setOpen(!open)}>
             Home
           </NavLink>
         </li>
         <li className="nav-li-item">
-          <NavLink className={'nh'} to="/arr" onClick={() => setOpen(!open)}>
+          <NavLink className={'nh'} to={baseUrl + 'arr'} onClick={() => setOpen(!open)}>
             Array
           </NavLink>
         </li>
         <li className="nav-li-item">
-          <NavLink className={'nh'} to="/hashmap" onClick={() => setOpen(!open)}>
+          <NavLink className={'nh'} to={baseUrl + 'hashmap'} onClick={() => setOpen(!open)}>
             HashMap
           </NavLink>
         </li>
         <li className="nav-li-item">
-          <NavLink className={'nh'} to="/binary-tree" onClick={() => setOpen(!open)}>
+          <NavLink className={'nh'} to={baseUrl + 'binary-tree'} onClick={() => setOpen(!open)}>
             Binary Tree
           </NavLink>
         </li>

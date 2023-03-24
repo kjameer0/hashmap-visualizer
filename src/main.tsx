@@ -11,30 +11,30 @@ import BinaryTree from 'components/visualizers/BinaryTree';
 import { ErrorPage } from 'utils/error-handling';
 
 import App from './App';
-
+export const baseUrl = '/hashmap-visualizer/';
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: baseUrl,
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '',
+        path: baseUrl + '',
         element: <Home />,
         errorElement: <ErrorPage />,
       },
       {
-        path: 'arr',
+        path: baseUrl + 'arr',
         element: <Arr />,
         errorElement: <ErrorPage />,
       },
       {
-        path: 'hashmap',
+        path: baseUrl + 'hashmap',
         element: <Hashmap />,
         errorElement: <ErrorPage />,
       },
       {
-        path: 'binary-tree',
+        path: baseUrl + 'binary-tree',
         element: <BinaryTree />,
         errorElement: <ErrorPage />,
       },
