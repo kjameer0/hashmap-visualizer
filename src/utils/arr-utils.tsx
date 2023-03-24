@@ -1,4 +1,3 @@
-import React from 'react';
 export const stringToArray = (str: string): string[] => {
   let start = 0;
   let end = str.length;
@@ -24,15 +23,4 @@ export function produceErrorMessage(err: unknown) {
   }
   reportError({ message });
   return message;
-}
-
-export function enterKeyDown(e: KeyboardEvent, button: HTMLElement) {
-  try {
-    if (!button) throw new Error('no button');
-    if (e.key === 'Enter') {
-      button.click();
-    }
-  } catch (error) {
-    produceErrorMessage;
-  }
 }

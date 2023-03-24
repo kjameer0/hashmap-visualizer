@@ -53,6 +53,10 @@ export default function BinaryTree() {
       const newTree = new BinaryTreeMaker([...currentTree.tree]);
       //if there is no tree and use hits set val button, make val root of tree
       const selectedIdx = newTree.size === 0 ? 0 : selected;
+      //if no index is selected throw error, can set a val at no idx
+      if (selectedIdx !== null && selectedIdx < 0) {
+        throw new Error('no selected index to set');
+      }
       newTree.setValAtIdx(val, selectedIdx);
       setCurrentTree(newTree);
       setOutput(val);
@@ -60,6 +64,10 @@ export default function BinaryTree() {
     } catch (error) {
       setErrorText(produceErrorMessage(error));
     }
+  }
+  function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key !== 'Enter') return;
+    handleSetVal();
   }
   function handleSetLeft() {
     try {
@@ -129,6 +137,7 @@ export default function BinaryTree() {
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
                 onChange={(e) => setVal(e.target.value)}
+                onKeyDown={(e) => handleEnter(e)}
               />
             </label>
           </div>

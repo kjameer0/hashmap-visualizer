@@ -202,7 +202,6 @@ export default function HashMap() {
         <h2 className="hash-list-title">HashMap</h2>
         <HashVis
           hashmap={hashmap}
-          setHashmap={setHashmap}
           setHashKey={setHashKey}
           selected={selected}
           setSelected={setSelected}

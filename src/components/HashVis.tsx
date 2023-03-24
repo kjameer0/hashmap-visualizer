@@ -1,13 +1,10 @@
-import { useState } from 'react';
 export default function HashVis({
   hashmap,
-  setHashmap,
   selected,
   setSelected,
   setHashKey,
 }: {
   hashmap: Map<string, string>;
-  setHashmap: (map: Map<string, string>) => void;
   selected: string;
   setSelected: (a: string) => void;
   setHashKey: (key: string) => void;
