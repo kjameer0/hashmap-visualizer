@@ -1,10 +1,13 @@
 import HomeIcon from 'components/HomeIcon';
 import { baseUrl } from 'main';
+import arrayImg from '../src/assets/array.png';
+import hashImg from '../src/assets/hashmap.png';
+import btreeImg from '../src/assets/binary-tree.png';
 export default function Home() {
   const structures = [
-    { name: 'Array', src: 'src/assets/array.png', link: baseUrl + 'arr' },
-    { name: 'Hashmap', src: 'src/assets/hashmap.png', link: baseUrl + 'hashmap' },
-    { name: 'Binary Tree', src: 'src/assets/binary-tree.png', link: baseUrl + 'binary-tree' },
+    { name: 'Array', src: arrayImg, link: baseUrl + 'arr' },
+    { name: 'Hashmap', src: hashImg, link: baseUrl + 'hashmap' },
+    { name: 'Binary Tree', src: btreeImg, link: baseUrl + 'binary-tree' },
   ];
   return (
     <section className="container home-container">
