@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 //helpers
-import { BinaryTreeMaker, BinaryTreeNode, getBaseLog, makeRows } from 'utils/binaryTree-utils';
+import { BinaryTreeMaker, makeRows } from 'utils/binaryTree-utils';
 //components
 import BinaryTreeVisNode from './BinaryTreeVisNode';
 //styles
@@ -60,7 +59,6 @@ export default function BinaryTreeDisplay({
                   setSelected={setSelected}
                   selected={selected}
                   currentTree={currentTree}
-                  setCurrentTree={setCurrentTree}
                   setOutput={setOutput}
                   idx={index + 2 ** idx - 1}
                   parentSelect={parentSelect}

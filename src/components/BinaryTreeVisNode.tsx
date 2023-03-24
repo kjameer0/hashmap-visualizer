@@ -11,7 +11,6 @@ const cellPStyles: CSS.Properties = {
 };
 export default function BinaryTreeVisNode({
   currentTree,
-  setCurrentTree,
   idx,
   val,
   selected,
@@ -27,7 +26,6 @@ export default function BinaryTreeVisNode({
   focused,
 }: {
   currentTree: BinaryTreeMaker;
-  setCurrentTree: (tree: BinaryTreeMaker) => void;
   idx: number;
   val: BinaryTreeNode;
   selected: number | null;

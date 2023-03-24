@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { produceErrorMessage } from 'utils/arr-utils';
-import { BinaryTreeMaker, BinaryTreeNode, generateRandomBinaryTree } from 'utils/binaryTree-utils';
+import { BinaryTreeMaker, generateRandomBinaryTree } from 'utils/binaryTree-utils';
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
 import {
   bTreeInputDivStyles,
@@ -23,9 +23,6 @@ export default function BinaryTree() {
   const [focused, setFocused] = useState(false);
   const [viewInstructions, setViewInstructions] = useState(false);
 
-  useEffect(() => {
-    console.log(currentTree);
-  }, [currentTree]);
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const val = e.target.value;
@@ -48,7 +45,7 @@ export default function BinaryTree() {
   function handleRandomTree() {
     setCurrentTree(generateRandomBinaryTree(63));
   }
-  function handleSetVal(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleSetVal() {
     try {
       if (val === '') {
         throw new Error('enter a value');
@@ -64,7 +61,7 @@ export default function BinaryTree() {
       setErrorText(produceErrorMessage(error));
     }
   }
-  function handleSetLeft(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleSetLeft() {
     try {
       if (val === '' || selected === null) {
         throw new Error('enter a value and select a node');
@@ -78,7 +75,7 @@ export default function BinaryTree() {
       setErrorText(produceErrorMessage(error));
     }
   }
-  function handleSetRight(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleSetRight() {
     try {
       if (val === '' || selected === null) {
         throw new Error('enter a value and select a node');
