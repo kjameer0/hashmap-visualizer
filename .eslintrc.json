@@ -12,7 +12,11 @@
     {
       // enable eslint-plugin-testing-library rules or preset only for matching files!
       "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-      "extends": ["plugin:jest/recommended", "plugin:jest-dom/recommended", "plugin:testing-library/react"]
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
+      ]
     },
     {
       "files": ["**/*.ts?(x)"],
@@ -20,14 +24,13 @@
       "extends": ["plugin:@typescript-eslint/recommended", "plugin:import/typescript"]
     }
   ],
-  "rules": {
-    // for testing if eslint works properly,
-    // feel free to remove this if you do not need it
-    "import/no-unused-modules": [1, { "unusedExports": true }]
-  },
   "settings": {
     "import/parsers": {
       "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["off"]
     },
     "import/resolver": {
       "typescript": {}
