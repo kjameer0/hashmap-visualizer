@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+//error handling
 import { produceErrorMessage } from 'utils/arr-utils';
+//utils
 import { BinaryTreeMaker, generateRandomBinaryTree } from 'utils/binaryTree-utils';
+//components
 import BinaryTreeDisplay from 'components/BinaryTreeDisplay';
+//styles
 import {
   bTreeInputDivStyles,
   outputDivStyles,
@@ -26,11 +30,13 @@ export default function BinaryTree() {
   function handleSelectedChange(e: React.ChangeEvent<HTMLInputElement>) {
     try {
       const val = e.target.value;
+      //dont allow non numbers
       if (val.length > 0 && /^[0-9]+$/.test(val) === false) {
         throw new Error('invalid input');
       }
       setSelectedText(val);
       const newVal = val === '' ? -1 : Number(val);
+      //change parent and children highlits to match new selected
       setSelected(newVal);
       setParentSelect(currentTree.getParentIdx(newVal));
       setLeftChild(currentTree.getLeftChildIdx(newVal));
@@ -65,6 +71,7 @@ export default function BinaryTree() {
       setErrorText(produceErrorMessage(error));
     }
   }
+  //press enter to set a val
   function handleEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key !== 'Enter') return;
     handleSetVal();
@@ -75,6 +82,7 @@ export default function BinaryTree() {
         throw new Error('enter a value and select a node');
       }
       const newTree = new BinaryTreeMaker([...currentTree.tree]);
+      //set val to left of parent
       newTree.insert(val, selected, 'left');
       setCurrentTree(newTree);
       setOutput(val);
@@ -99,6 +107,7 @@ export default function BinaryTree() {
   }
   function handleDelete() {
     try {
+      //handle if there is no selection
       if (selected === null || selected < 0) {
         throw new Error('choose value to delete');
       }
