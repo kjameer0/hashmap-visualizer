@@ -21,7 +21,11 @@
     {
       "files": ["**/*.ts?(x)"],
       "parser": "@typescript-eslint/parser",
-      "extends": ["plugin:@typescript-eslint/recommended", "plugin:import/typescript"]
+      "extends": ["plugin:@typescript-eslint/recommended", "plugin:import/typescript"],
+      "rules": {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+      }
     }
   ],
   "settings": {
@@ -30,7 +34,8 @@
     },
     "rules": {
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": ["off"]
+      "@typescript-eslint/no-unused-vars": "off",
+      "quotes": ["error", "single"]
     },
     "import/resolver": {
       "typescript": {}
